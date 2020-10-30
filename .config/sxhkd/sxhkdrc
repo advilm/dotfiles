@@ -14,10 +14,10 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + p
-        sh /home/advil/.config/polybar/launch.sh
+        sh ~/.config/polybar/launch.sh
 
 Print
-	flameshot gui
+	sh ~/scripts/screenshot.sh
 
 super + Print
 	sh ~/scripts/xcolor.sh
