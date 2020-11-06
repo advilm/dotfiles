@@ -10,8 +10,6 @@ CASE_SENSITIVE="false"
 
 DISABLE_AUTO_TITLE="true"
 
-# ENABLE_CORRECTION="true"
-
 COMPLETION_WAITING_DOTS="false"
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
@@ -24,9 +22,6 @@ bindkey "^[[1;5D" backward-word
 
 bindkey '^ ' autosuggest-accept
 
-bindkey '^H' backward-kill-word
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 source $ZSH/oh-my-zsh.sh
-alias paper='. /home/advil/Paper/paper'
