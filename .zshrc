@@ -12,7 +12,7 @@ DISABLE_AUTO_TITLE="true"
 
 # ENABLE_CORRECTION="true"
 
-COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="false"
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -29,3 +29,4 @@ bindkey '^H' backward-kill-word
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 source $ZSH/oh-my-zsh.sh
+alias paper='. /home/advil/Paper/paper'
