@@ -3,7 +3,7 @@ CASE_SENSITIVE="false"
 
 DISABLE_AUTO_TITLE="true"
 
-COMPLETION_WAITING_DOTS="false"
+TIMEFMT=$'\ncpu\t%P\nuser\t%*U\nsys\t%*S\ntotal\t%*E'
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
