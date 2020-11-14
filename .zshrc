@@ -15,7 +15,7 @@ bindkey '^ ' autosuggest-accept
 
 bindkey '^H' backward-kill-word
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 source <(antibody init)
