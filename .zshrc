@@ -10,9 +10,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
-
 bindkey '^ ' autosuggest-accept
-
 bindkey '^H' backward-kill-word
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

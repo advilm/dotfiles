@@ -2,9 +2,9 @@ caarlos0/zsh-mkc
 
 robbyrussell/oh-my-zsh
 ohmyzsh/ohmyzsh path:plugins/cp
+ohmyzsh/ohmyzsh path:themes/agnoster.zsh-theme
 
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 
-agnoster/agnoster-zsh-theme 
