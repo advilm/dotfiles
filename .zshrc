@@ -1,4 +1,3 @@
-
 CASE_SENSITIVE="false"
 
 DISABLE_AUTO_TITLE="true"
@@ -15,6 +14,11 @@ bindkey '^H' backward-kill-word
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
+
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C

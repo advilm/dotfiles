@@ -7,11 +7,7 @@ super + Return
 	alacritty
 
 super + space
-  rofi -modi 'drun,ssh,window' -show drun -font 'Google Sans 12' -icon-theme -show-icons -theme ~/.config/rofi/slate.rasi
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
+	sh ~/scripts/rofi.sh
 
 super + p
         sh ~/.config/polybar/launch.sh
@@ -21,6 +17,15 @@ Print
 
 super + Print
 	sh ~/scripts/xcolor.sh
+
+super + shift + d
+	sh ~/scripts/click.sh
+
+# make sxhkd reload its configuration files:
+
+super + Escape
+	pkill -USR1 -x sxhkd
+
 #
 # bspwm hotkeys
 #
@@ -97,7 +102,7 @@ super + {_,shift + }{1-9,0}
 
 # preselect the direction
 super + ctrl + {j,k,l,semicolon}
-	bspc node -p {west,south,north,east}
+	bspc node -p {west,north,south,east}
 
 # preselect the ratio
 super + ctrl + {1-9}
