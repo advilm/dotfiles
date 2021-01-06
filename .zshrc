@@ -13,12 +13,10 @@ bindkey '^ ' autosuggest-accept
 bindkey '^H' backward-kill-word
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias yay='paru'
 
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
 
 autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
+compinit
