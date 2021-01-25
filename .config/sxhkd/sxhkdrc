@@ -12,6 +12,9 @@ super + space
 super + p
         sh ~/.config/polybar/launch.sh
 
+super + v
+	CM_LAUNCHER=rofi clipmenu -theme ~/.config/rofi/slate.rasi -font 'Product Sans 12' && xdotool key shift+Insert
+
 Print
 	sh ~/scripts/screenshot.sh
 
