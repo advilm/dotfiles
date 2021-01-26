@@ -6,6 +6,5 @@ xsetroot -cursor_name left_ptr &
 ~/.config/polybar/launch.sh
 flameshot &
 exec bspwm
-while true; do xrandr --auto; sleep 1; done
 
 
