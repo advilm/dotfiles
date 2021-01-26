@@ -1,5 +1,8 @@
 caarlos0/zsh-mkc
 
+robbyrussell/oh-my-zsh
+ohmyzsh/ohmyzsh path:plugins/cp
+
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
