@@ -6,5 +6,3 @@ xsetroot -cursor_name left_ptr &
 ~/.config/polybar/launch.sh
 flameshot &
 exec bspwm
-
-
