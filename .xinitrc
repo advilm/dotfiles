@@ -4,7 +4,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1;
 xsetroot -cursor_name left_ptr &
 ~/.config/polybar/launch.sh &
 (feh --no-fehbg --bg-scale ~/.config/feh/background.png && picom) &
-exec bspwm
 
 flameshot &
 clipmenud &
+
+exec bspwm

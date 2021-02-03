@@ -1,0 +1,5 @@
+#!/bin/sh
+
+unzip -od "$HOME/games/osu/drive_c/osu/Songs/$(basename "${1%.osz}")" "$1"
+
+rm "$1"
