@@ -22,6 +22,9 @@ bindkey '^H' backward-kill-word
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias yay='paru'
 
+path+=("$HOME/.local/bin")
+export PATH
+
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
 
@@ -31,3 +34,6 @@ compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
