@@ -20,7 +20,7 @@ bspc rule -a discord desktop='4'
 pgrep -x DiscordDevelopm > /dev/null || discord-development &
 pgrep -x firefox > /dev/null || firefox-developer-edition &
 
-sleep 60
+sleep 120
 
 bspc rule -r firefoxdeveloperedition
 bspc rule -r discord
