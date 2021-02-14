@@ -1,3 +1,4 @@
 #!/bin/sh
 
-curl -H "Content-Type: multipart/form-data" -H "authorization: $(cat $HOME/.zipline)" -F file="@$1" https://advil.sucks-at.codes/api/upload | xsel -ib
+curl -H "Content-Type: multipart/form-data" -H "authorization: $(sed -n 1p $HOME/.auth)" -F file="@$1" https://advil.sucks-at.codes/api/upload | xsel -ib
+#curl -H "Content-Type: multipart/form-data" -H "authorization: $(sed -n 2p $HOME/.auth)" -F file="@$1" https://cdn.voidchan.gg/api/providers/sharex | jq -j '.files[0].url' | xsel -ib
