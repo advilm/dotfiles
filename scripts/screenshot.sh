@@ -1,4 +1,4 @@
-flameshot gui -r > ~/downloads/sc.png
+flameshot gui -r > ~/downloads/sc.png || exit
 URL=$(upload ~/downloads/sc.png)
 
 echo -n $URL | xsel -ib
