@@ -1,2 +1,14 @@
-flameshot gui -r > ~/downloads/sc.png && upload ~/downloads/sc.png && paplay ~/downloads/beep.ogg
+flameshot gui -r > ~/downloads/sc.png
+URL=$(upload ~/downloads/sc.png)
+
+echo -n $URL | xsel -ib
+
+ACTION=$(dunstify -i flameshot --action="default,open" "Uploaded Screenshot" "$URL")
+
+if [ "$ACTION" = "default" ]
+then
+  xdg-open $URL
+  wmctrl -a firefox
+fi
+
 # flameshot gui
