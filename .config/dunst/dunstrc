@@ -41,13 +41,13 @@
 [urgency_low]
     background = "#14161b"
     foreground = "#fff"
-    frame_color = "#3498db"
+    frame_color = "#82AAFF"
     timeout = 3
 
 [urgency_normal]
     background = "#14161b"
     foreground = "#fff"
-    frame_color = "#3498db"
+    frame_color = "#82AAFF"
     timeout = 3
 
 [urgency_critical]
