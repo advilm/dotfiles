@@ -8,5 +8,6 @@ xsetroot -cursor_name left_ptr &
 
 flameshot &
 clipmenud &
+dunst &
 
 exec bspwm
