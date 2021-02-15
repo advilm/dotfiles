@@ -11,7 +11,7 @@
     ignore_newline = no
     geometry = "450x5-8+34"
     shrink = yes
-    transparency = 10
+    transparency = 0
     idle_threshold = 120
     monitor = 0
     follow = mouse
