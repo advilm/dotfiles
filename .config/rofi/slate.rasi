@@ -6,6 +6,11 @@
   width: 512px;
 }
 
+window {
+  location: center;
+  anchor:  center;
+}
+
 inputbar {
   border: 0 0 1px 0;
   children: [prompt,entry];
