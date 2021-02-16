@@ -1,8 +1,8 @@
 [colors]
-background = #222
+background = #14161b
 foreground = #eee
 linecolor = #82AAFF
-bordercolor = #333
+bordercolor = #2b2d31
 accent = #e60053
 
 [settings]
@@ -43,7 +43,7 @@ foreground = ${colors.foreground}
 ;background-7 = #111
 
 line-color = ${colors.linecolor}
-underline-size = 1
+underline-size = 0
 overline-size = 2
 
 ;border-size = 5
@@ -89,7 +89,7 @@ scroll-down = bspwm-desknext
 
 # bar/module specific vars
 bspwm-focused-overline = ${colors.linecolor}
-bspwm-focused-underline = #cc333333
+bspwm-focused-underline = #cc2b2d31
 
 [bar/bottom]
 inherit = bar/top
@@ -159,7 +159,7 @@ inline-mode = true
 
 ;label-focused = %icon%
 label-focused = o
-label-focused-background = #383838
+label-focused-background = #2b2d31
 label-focused-foreground = #fff
 label-focused-overline = ${root.bspwm-focused-overline}
 label-focused-underline = ${root.bspwm-focused-underline}
