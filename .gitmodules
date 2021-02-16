@@ -1,6 +1,3 @@
 [submodule ".config/firefox"]
 	path = .config/firefox
-	url = https://github.com/advilm/MaterialFox.git
-[submodule ".config/MaterialFox"]
-	path = .config/MaterialFox
-	url = https://github.com/advilm/MaterialFox.git
+	url = git@github.com:advilm/MaterialFox.git
