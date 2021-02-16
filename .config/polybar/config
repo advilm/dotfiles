@@ -159,7 +159,7 @@ inline-mode = true
 
 ;label-focused = %icon%
 label-focused = o
-label-focused-background = #2b2d31
+label-focused-background = #353a47
 label-focused-foreground = #fff
 label-focused-overline = ${root.bspwm-focused-overline}
 label-focused-underline = ${root.bspwm-focused-underline}
