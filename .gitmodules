@@ -1,0 +1,3 @@
+[submodule ".config/firefox"]
+	path = .config/firefox
+	url = git@github.com:muckSponge/MaterialFox.git
