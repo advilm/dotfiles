@@ -8,7 +8,7 @@
     vertical_alignment = top
     bounce_freq = 0
     show_age_threshold = 60
-    word_wrap = yes
+    word_wrap = no
     ignore_newline = no
     geometry = "450x5-8+34"
     shrink = yes
@@ -30,7 +30,7 @@
     show_indicators = no    
     icon_position = left
     max_icon_size = 48
-    icon_path = /usr/share/icons/Adwaita/16x16/actions:/usr/share/icons/Adwaita/16x16/apps:/usr/share/icons/Adwaita/16x16/categories:/usr/share/icons/Adwaita/16x16/devices:/usr/share/icons/Adwaita/16x16/emblems:/usr/share/icons/Adwaita/16x16/emotes:/usr/share/icons/Adwaita/16x16/legacy:/usr/share/icons/Adwaita/16x16/mimetypes:/usr/share/icons/Adwaita/16x16/places:/usr/share/icons/Adwaita/16x16/status:/usr/share/icons/Adwaita/16x16/ui:/usr/share/icons/hicolor/48x48/apps
+    icon_path = /usr/share/icons/Adwaita/48x48/actions:/usr/share/icons/Adwaita/48x48/apps:/usr/share/icons/Adwaita/48x48/categories:/usr/share/icons/Adwaita/48x48/devices:/usr/share/icons/Adwaita/48x48/emblems:/usr/share/icons/Adwaita/48x48/emotes:/usr/share/icons/Adwaita/48x48/legacy:/usr/share/icons/Adwaita/48x48/mimetypes:/usr/share/icons/Adwaita/48x48/places:/usr/share/icons/Adwaita/48x48/status:/usr/share/icons/Adwaita/48x48/ui:/usr/share/icons/hicolor/48x48/apps
 
     mouse_left_click = do_action
     mouse_right_click = close_all
