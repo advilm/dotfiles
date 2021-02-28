@@ -64,7 +64,7 @@ font-2 = unifont:size=6;1
 modules-left = bspwm i3
 ;modules-center = mpd
 modules-center = xwindow
-modules-right = xkeyboard xbacklight volume wifi battery memory cpu date
+modules-right = memory cpu date
 
 tray-position = right
 tray-padding = 4
