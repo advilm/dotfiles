@@ -6,11 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 CASE_SENSITIVE="false"
-
 DISABLE_AUTO_TITLE="true"
-
 TIMEFMT=$'\nuser\t%*U\nsys\t%*S\ntotal\t%*E'
-
+ZLE_RPROMPT_INDENT=0
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
