@@ -38,7 +38,6 @@
 
 [shortcuts]
     close_all = ctrl+shift+space
-    history = ctrl+grave
     context = ctrl+shift+period
 
 [urgency_low]
