@@ -5,24 +5,25 @@
 # terminal emulator
 super + Return
 	alacritty
-
+# app menu
 super + space
 	sh ~/scripts/rofi.sh
 
+# reloads polybar
 super + p
         sh ~/.config/polybar/launch.sh
 
+# clipboard history
 super + v
 	CM_LAUNCHER=rofi clipmenu -theme ~/.config/rofi/slate.rasi -font 'Product Sans 12' && xdotool key shift+Insert
 
+# screenshot
 Print
 	sh ~/scripts/screenshot.sh
 
+# color picker
 super + Print
 	sh ~/scripts/xcolor.sh
-
-super + shift + d
-	sh ~/scripts/click.sh
 
 # make sxhkd reload its configuration files:
 
