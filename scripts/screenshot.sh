@@ -8,7 +8,6 @@ ACTION=$(dunstify -i flameshot --action="default,open" "Uploaded Screenshot" "$U
 if [ "$ACTION" = "default" ]
 then
   xdg-open $URL
-  wmctrl -a firefox
 fi
 
 # flameshot gui
