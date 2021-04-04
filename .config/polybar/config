@@ -64,7 +64,7 @@ font-3 = unifont:size=6;1
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = wired memory cpu date
+modules-right = down up memory cpu date
 
 tray-position = right
 tray-padding = 4
@@ -206,20 +206,23 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = #666
 
-[module/wired]
+[module/down]
 type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected-prefix = " "
+format-connected-prefix = "⯆ "
 format-connected-prefix-foreground = #666
 label-connected = %downspeed%
 
-;format-disconnected = <label-disconnected>
-;format-disconnected-prefix = " "
-;format-disconnected-prefix-foreground = #666
-;label-disconnected = not connected
-;label-disconnected-foreground = #999
+[module/up]
+type = internal/network
+interface = eno1
+interval = 3.0
+
+format-connected-prefix = "⯅ "
+format-connected-prefix-foreground = #666
+label-connected = %upspeed%
 
 [module/date]
 type = internal/date
