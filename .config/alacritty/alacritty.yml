@@ -8,9 +8,6 @@ window:
     y: 6
   title: Alacritty
 
-scrolling:
-  history: 100000
-
 font:
   normal:
     family: MesloLGS NF
