@@ -17,9 +17,6 @@ bindkey "^[[1;5D" backward-word
 bindkey '^ ' autosuggest-accept
 bindkey '^H' backward-kill-word
 
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias yay='paru'
-
 path+=("$HOME/.local/bin")
 export PATH
 
@@ -28,6 +25,10 @@ antibody bundle < ~/.zsh_plugins
 
 autoload -Uz compinit
 compinit
+
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias yay='paru'
+alias ls='exa'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
