@@ -17,7 +17,7 @@ bindkey "^[[1;5D" backward-word
 bindkey '^ ' autosuggest-accept
 bindkey '^H' backward-kill-word
 
-path+=("$HOME/.local/bin")
+path+=("$HOME/.local/bin" "$HOME/.cargo/bin")
 export PATH
 
 source <(antibody init)
