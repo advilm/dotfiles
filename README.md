@@ -2,7 +2,10 @@
 
 ## Cloning
 ```bash
-git clone --recursive git@github.com:advilm/dotfiles.git
+git clone --bare git@github.com:advilm/dotfiles.git .dotfiles
+function config { /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@; }
+config checkout
+config submodule update --init --recursive
 ```
 
 ## Packages 
