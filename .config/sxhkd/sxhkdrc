@@ -7,23 +7,26 @@ super + Return
 	alacritty
 # app menu
 super + space
-	sh ~/scripts/rofi.sh
+	~/scripts/rofi.sh
 
 # reloads polybar
 super + p
-        sh ~/.config/polybar/launch.sh
+        ~/.config/polybar/launch.sh
 
 # clipboard history
 super + v
 	CM_LAUNCHER=rofi clipmenu -theme ~/.config/rofi/slate.rasi -font 'Product Sans 12' && xdotool key shift+Insert
 
+super + h
+	~/scripts/lock.sh
+
 # screenshot
 Print
-	sh ~/scripts/screenshot.sh
+	~/scripts/screenshot.sh
 
 # color picker
 super + Print
-	sh ~/scripts/xcolor.sh
+	~/scripts/xcolor.sh
 
 # make sxhkd reload its configuration files:
 
