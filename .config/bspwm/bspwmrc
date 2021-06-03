@@ -17,13 +17,16 @@ bspc rule -a zoom desktop='2'
 bspc rule -a firefoxdeveloperedition desktop='3'
 bspc rule -a discord desktop='4'
 bspc rule -a Pulseeffects desktop='9'
+bspc rule -a Pavucontrol desktop='9'
 
 pgrep -x DiscordDevelopm > /dev/null || discord-development &
 pgrep -x firefox > /dev/null || firefox-developer-edition &
 pgrep -x pulseeffects > /dev/null || pulseeffects &
+pgrep -x pavucontrol > /dev/null || pavucontrol &
 
-sleep 120
+sleep 10
 
 bspc rule -r firefoxdeveloperedition
 bspc rule -r discord
-bspc rule -r pulseeffects
+bspc rule -r Pulseeffects
+bspc rule -r Pavucontrol
