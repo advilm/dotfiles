@@ -28,6 +28,7 @@ textbox {
   padding: 8px 16px;
 }
 
+
 entry {
   padding: 16px;
 }
@@ -46,3 +47,13 @@ element {
 element selected {
   background-color: #2e343f;
 }
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element-icon {
+    margin: 2px 13px 0 0;
+}
+

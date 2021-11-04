@@ -11,10 +11,6 @@ window {
   anchor:  center;
 }
 
-mainbox {
-  children: [listview];
-}
-
 listview {
   cycle: false;
   margin: 0 0 -1px 0;
@@ -29,3 +25,13 @@ element {
 element selected {
   background-color: #2e343f;
 }
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+element-icon {
+    margin: 2px 13px 0 0;
+}
+
