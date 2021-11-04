@@ -29,9 +29,12 @@ super + Print
 	~/scripts/xcolor.sh
 
 # make sxhkd reload its configuration files:
-
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# clear dunst notifs
+ctrl + shift + space
+	dunstctl close-all
 
 #
 # bspwm hotkeys
