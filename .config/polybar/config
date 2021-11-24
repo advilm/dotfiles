@@ -57,9 +57,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = calibri:pixelsize=12;1
-font-1 = dina:pixelsize=9;1
-font-2 = siji:pixelsize=10.5;1
-font-3 = unifont:size=6;1
+font-1 = Font Awesome 5 Free Solid:size=9;2.5 
 
 modules-left = bspwm label
 modules-center = xwindow
@@ -69,8 +67,8 @@ tray-position = right
 tray-padding = 4
 tray-maxsize = 16
 ;tray-transparent = true
-;tray-detached = true
-;tray-offset-x = 50
+; tray-detached = true
+; tray-offset-x = 0
 
 wm-restack = bspwm
 
@@ -124,25 +122,29 @@ type = internal/bspwm
 
 format = <label-mode>
 
-label-monocle = ""
+label-monocle = ""
 label-monocle-padding = 2
 label-monocle-foreground = ${colors.accent}
 
-label-floating = ""
+label-floating = ""
 label-floating-padding = 2
 label-floating-foreground = ${colors.accent}
 
-label-locked = locked
+label-locked = ""
 label-locked-padding = 2
 label-locked-foreground = ${colors.accent}
 
-label-sticky = sticky
+label-sticky = ""
 label-sticky-padding = 2
 label-sticky-foreground = ${colors.accent}
 
-label-private = private
+label-private = ""
 label-private-padding = 2
 label-private-foreground = ${colors.accent}
+
+label-marked = ""
+label-marked-padding = 2
+label-marked-foreground = ${colors.accent}
 
 ;label-pseudotiled = pseudo
 ;label-pseudotiled-padding = 2
@@ -156,14 +158,14 @@ label-private-foreground = ${colors.accent}
 type = internal/cpu
 interval = 2
 label = %percentage%%
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.accent}
 
 [module/memory]
 type = internal/memory
 interval = 2
 label = %percentage_used%%
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.accent}
 
 [module/wifi]
@@ -196,7 +198,7 @@ type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected-prefix = "⯆ "
+format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.accent}
 label-connected = %downspeed%
 
@@ -205,13 +207,13 @@ type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected-prefix = "⯅ "
+format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.accent}
 label-connected = %upspeed%
 
 [module/date]
 type = internal/date
-label = %{F#82AAFF}%{F-} %date%  %{F#82AAFF}%{F-} %time%
+label = "%{F#82AAFF} %{F-} %date%  %{F#82AAFF} %{F-} %time%"
 date = %Y-%m-%d
 time = %H:%M
 interval = 5
