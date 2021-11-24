@@ -8,8 +8,10 @@ bspc config border_width         1
 bspc config window_gap           8
 
 bspc config split_ratio          0
-# bspc config borderless_monocle   true
-# bspc config gapless_monocle      true
+
+bspc config borderless_monocle     true
+bspc config gapless_monocle        true
+bspc config single_monocle         true
 
 bspc config focused_border_color '#82AAFF'
 
@@ -31,6 +33,7 @@ pgrep -x firefox > /dev/null || firefox-developer-edition &
 pgrep -x obs > /dev/null || flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio &
 pgrep -x pavucontrol > /dev/null || pavucontrol &
 # pgrep -x pulseeffects > /dev/null || pulseeffects &
+kdeconnect-indicator &
 
 sleep 60
 
