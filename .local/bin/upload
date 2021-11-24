@@ -1,6 +1,5 @@
 #!/bin/sh
 
-URL=$(curl -H "Content-Type: multipart/form-data" -H "authorization: $(sed -n 1p $HOME/.auth)" -F file="@$1" https://advil.cf/api/upload | jq -r .url)
-#URL=$(curl -H "Content-Type: multipart/form-data" -H "authorization: $(sed -n 2p $HOME/.auth)" -F file="@$1" https://cdn.voidchan.gg/api/providers/sharex | jq -j '.files[0].url')
+URL=$(curl -H "Content-Type: multipart/form-data" -H "authorization: $(sed -n 1p $HOME/.auth)" -F file="@$1" https://advil.cf/api/upload)
 
 echo -n $URL

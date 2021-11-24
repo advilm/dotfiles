@@ -7,7 +7,7 @@
 "xdotool key F23"
   b:13
 
-"xdotool key F24"
+"xdotool key Delete"
   b:14
 
 "xdotool key F25"
