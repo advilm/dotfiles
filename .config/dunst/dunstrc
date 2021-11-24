@@ -36,7 +36,7 @@
     origin = top-right
     offset = -8x34
     scale = 0
-    notifications_limit = 3
+    notification_limit = 3
 
 
     mouse_left_click = do_action
