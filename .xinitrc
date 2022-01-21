@@ -9,8 +9,9 @@ xsetroot -cursor_name left_ptr &
 
 flameshot &
 clipmenud &
+GDK_BACKEND=x11 /usr/bin/ulauncher --hide-window --no-window-shadow &
 dunst &
-#~/scripts/tablet.sh
+# ~/scripts/tablet.sh
 xbindkeys
 
 setxkbmap -option caps:super

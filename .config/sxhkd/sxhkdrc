@@ -9,8 +9,8 @@ super + {_,shift +}Return
 	{alacritty, bspc rule -a \* -o state=floating && alacritty}
 
 # app menu
-super + space
-	rofi -modi drun -show drun -font 'Google Sans 12' -icon-theme -show-icons -theme ~/.config/rofi/slate.rasi
+#super + space
+#	rofi -modi drun -show drun -font 'Google Sans 12' -icon-theme -show-icons -theme ~/.config/rofi/slate.rasi
 
 # reloads polybar
 super + p
