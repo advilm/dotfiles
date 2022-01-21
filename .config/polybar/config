@@ -122,9 +122,10 @@ type = internal/bspwm
 
 format = <label-mode>
 
-label-monocle = ""
-label-monocle-padding = 2
-label-monocle-foreground = ${colors.accent}
+; Always shows on single monocle, which is annoying
+; label-monocle = ""
+; label-monocle-padding = 2
+; label-monocle-foreground = ${colors.accent}
 
 label-floating = ""
 label-floating-padding = 2

@@ -5,13 +5,12 @@ export QT_STYLE_OVERRIDE=kvantum
 # export QT_QPA_PLATFORMTHEME=gtk2
 
 xsetroot -cursor_name left_ptr &
-~/.config/polybar/launch.sh &
 (feh --no-fehbg --bg-scale ~/.config/feh/background.png && picom) &
 
 flameshot &
 clipmenud &
 dunst &
-~/scripts/tablet.sh
+#~/scripts/tablet.sh
 xbindkeys
 
 setxkbmap -option caps:super

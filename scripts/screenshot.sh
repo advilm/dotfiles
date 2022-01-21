@@ -1,5 +1,5 @@
 flameshot gui -r > ~/downloads/sc.png || exit
-URL=$(upload ~/downloads/sc.png | jq -r .url)
+URL=$(upload ~/downloads/sc.png | jq -r .files[0])
 
 echo -n $URL | xsel -ib
 

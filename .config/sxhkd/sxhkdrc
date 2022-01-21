@@ -3,8 +3,11 @@
 #
 
 # terminal emulator
-super + Return
-	alacritty
+#super + Return
+#	alacritty
+super + {_,shift +}Return
+	{alacritty, bspc rule -a \* -o state=floating && alacritty}
+
 # app menu
 super + space
 	rofi -modi drun -show drun -font 'Google Sans 12' -icon-theme -show-icons -theme ~/.config/rofi/slate.rasi
@@ -94,7 +97,12 @@ super + bracket{left,right}
 
 # focus the next/previous node in the current desktop
 alt + {_,shift +} Tab
-    bspc node -f {next,prev}.local.window
+	bspc node -f {next,prev}.local.window
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
 
 # focus the older or newer node in the focus history
 super + {o,i}

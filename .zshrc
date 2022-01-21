@@ -17,6 +17,8 @@ bindkey "^[[1;5D" backward-word
 bindkey '^ ' autosuggest-accept
 bindkey '^H' backward-kill-word
 
+setopt correct
+
 path+=("$HOME/.local/bin" "$HOME/.cargo/bin")
 export PATH
 
