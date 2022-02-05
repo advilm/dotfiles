@@ -26,5 +26,12 @@
         "updated_at": "2022-01-20T19:52:26.520894",
         "last_commit": "28af5ac8a196bb0e543c5f9ed46608614d56dac3",
         "last_commit_time": "2022-01-21T03:50:59"
+    },
+    "com.github.the-lay.ulauncher-spotify-api": {
+        "id": "com.github.the-lay.ulauncher-spotify-api",
+        "url": "https://github.com/the-lay/ulauncher-spotify-api",
+        "updated_at": "2022-01-21T10:26:23.747431",
+        "last_commit": "fada055fca1ed1787e3908c66f3e326f7babb886",
+        "last_commit_time": "2021-08-30T16:47:42"
     }
 }

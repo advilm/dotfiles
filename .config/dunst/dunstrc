@@ -22,7 +22,7 @@
     padding = 8
     horizontal_padding = 8
     separator_color = frame
-    frame_width = 1
+    frame_width = 2
     startup_notification = false
     dmenu = rofi -dmenu -font 'Google Sans 12' -theme ~/.config/rofi/slate-noprompt.rasi -no-fixed-num-lines
     browser = /usr/bin/firefox-developer-edition -new-tab

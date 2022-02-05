@@ -21,6 +21,9 @@ bspc desktop 3 -l monocle
 sleep 1
 
 bspc rule -a Peek  		     state=floating
+bspc rule -a Xpra-GUI  		     state=floating
+bspc rule -a Xpra-Launcher-GUI 	     state=floating
+bspc rule -a Alacritty               desktop='1'
 bspc rule -a zoom                    desktop='2' state='floating'
 bspc rule -a firefoxdeveloperedition desktop='3'
 bspc rule -a discord                 desktop='4'
@@ -33,11 +36,10 @@ pgrep -x DiscordDevelopm > /dev/null || /home/advil/.dvm/bin/discord-development
 pgrep -x firefox > /dev/null || firefox-developer-edition &
 pgrep -x obs > /dev/null || flatpak run --branch=stable --arch=x86_64 --command=obs com.obsproject.Studio &
 pgrep -x pavucontrol > /dev/null || pavucontrol &
-# pgrep -x pulseeffects > /dev/null || pulseeffects &
-kdeconnect-indicator &
+pgrep -x kdeconnect-indi > /dev/null || kdeconnect-indicator &
 
-sleep 60
+sleep 20
 
 bspc rule -r firefoxdeveloperedition
-# bspc rule -r easyeffects
 bspc rule -r Pavucontrol
+bspc rule -r Alacritty
