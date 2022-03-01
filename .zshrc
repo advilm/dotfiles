@@ -17,6 +17,9 @@ bindkey "^[[1;5D" backward-word
 bindkey '^ ' autosuggest-accept
 bindkey '^H' backward-kill-word
 
+alias ff=firefox-developer-edition
+alias code=code-insiders
+
 setopt correct
 
 path+=("$HOME/.local/bin" "$HOME/.cargo/bin")
