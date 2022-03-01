@@ -1,18 +1,27 @@
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
+export WINIT_X11_SCALE_FACTOR=1.5
 export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_STYLE_OVERRIDE=kvantum
-# export QT_QPA_PLATFORMTHEME=gtk2
+export QT_QPA_PLATFORMTHEME=qt5ct
 
-xsetroot -cursor_name left_ptr &
-(feh --no-fehbg --bg-scale ~/.config/feh/background.png && picom) &
+xrdb -merge ~/.Xresources
+xset b off
+xsetroot -cursor_name left_ptr
+setxkbmap -option caps:super
+# xbindkeys
+if [ "$(xfconf-query -c xsettings -p /Net/ThemeName)" = "Matcha-dark-azul" ]; then
+  hsetroot -solid '#020e1d'
+else
+  hsetroot -solid '#ebedef'
+fi
 
+picom &
+xfsettingsd &
+touchegg &
 flameshot &
 clipmenud &
-GDK_BACKEND=x11 /usr/bin/ulauncher --hide-window --no-window-shadow &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
-xbindkeys
-
-setxkbmap -option caps:super
+GDK_BACKEND=x11 ulauncher --hide-window --no-window-shadow &
+xss-lock --transfer-sleep-lock -- ~/scripts/lock.sh &
 
 exec bspwm
