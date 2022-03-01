@@ -1,13 +1,7 @@
-flameshot gui -r > ~/downloads/sc.png || exit
-URL=$(upload ~/downloads/sc.png | jq -r .files[0])
+! (flameshot gui -r 2>&1 1> ~/downloads/sc.png | grep abort) || exit
 
-echo -n $URL | xsel -ib
-
-ACTION=$(dunstify -i flameshot --action="default,open" "Uploaded Screenshot" "$URL")
-
-if [ "$ACTION" = "default" ]
-then
-  xdg-open $URL
-fi
+xsel -bd
+upload ~/downloads/sc.png | jq -r .files[0] | xsel -ib
+notify-send -i flameshot 'Uploaded Screenshot'
 
 # flameshot gui
