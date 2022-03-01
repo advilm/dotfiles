@@ -2,35 +2,35 @@
     "com.github.tchar.ulauncher-albert-calculate-anything": {
         "id": "com.github.tchar.ulauncher-albert-calculate-anything",
         "url": "https://github.com/tchar/ulauncher-albert-calculate-anything",
-        "updated_at": "2022-01-20T19:06:34.857451",
+        "updated_at": "2022-02-05T15:38:03.256667",
         "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
         "last_commit_time": "2021-08-12T06:39:56"
     },
     "com.github.iboyperson.ulauncher-system": {
         "id": "com.github.iboyperson.ulauncher-system",
         "url": "https://github.com/iboyperson/ulauncher-system",
-        "updated_at": "2022-01-20T19:46:49.595761",
+        "updated_at": "2022-02-05T15:38:05.271403",
         "last_commit": "667613bf7bb6b4affa4f2121b58589477cd89829",
         "last_commit_time": "2021-11-08T18:16:55"
     },
     "com.github.ulauncher.ulauncher-kill": {
         "id": "com.github.ulauncher.ulauncher-kill",
         "url": "https://github.com/Ulauncher/ulauncher-kill",
-        "updated_at": "2022-01-20T19:47:11.649563",
+        "updated_at": "2022-02-05T15:38:06.683990",
         "last_commit": "7ba3f9fb273c4cbbecd26352c88a3156205417db",
         "last_commit_time": "2020-01-05T13:02:00"
     },
     "com.github.diced.ulauncher-vscode-projects": {
         "id": "com.github.diced.ulauncher-vscode-projects",
         "url": "https://github.com/diced/ulauncher-vscode-projects",
-        "updated_at": "2022-01-20T19:52:26.520894",
+        "updated_at": "2022-02-05T15:38:09.249706",
         "last_commit": "28af5ac8a196bb0e543c5f9ed46608614d56dac3",
         "last_commit_time": "2022-01-21T03:50:59"
     },
     "com.github.the-lay.ulauncher-spotify-api": {
         "id": "com.github.the-lay.ulauncher-spotify-api",
         "url": "https://github.com/the-lay/ulauncher-spotify-api",
-        "updated_at": "2022-01-21T10:26:23.747431",
+        "updated_at": "2022-02-05T15:38:11.406589",
         "last_commit": "fada055fca1ed1787e3908c66f3e326f7babb886",
         "last_commit_time": "2021-08-30T16:47:42"
     }
