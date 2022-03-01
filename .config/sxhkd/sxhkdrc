@@ -3,13 +3,14 @@
 #
 
 # terminal emulator
-#super + Return
-#	alacritty
+super + Return
+	pgrep -x alacritty > /dev/null && alacritty msg create-window || alacritty
+
 super + {_,shift +}Return
 	{alacritty, bspc rule -a \* -o state=floating && alacritty}
 
 # app menu
-#super + space
+# super + space
 #	rofi -modi drun -show drun -font 'Google Sans 12' -icon-theme -show-icons -theme ~/.config/rofi/slate.rasi
 
 # reloads polybar
@@ -25,7 +26,7 @@ super + h
 
 # screenshot
 Print
-	~/scripts/screenshot.sh
+	bash ~/scripts/screenshot.sh
 
 # color picker
 super + Print
@@ -35,9 +36,30 @@ super + Print
 super + Escape
 	pkill -USR1 -x sxhkd
 
-# clear dunst notifs
-ctrl + shift + space
-	dunstctl close-all
+# Multimedia
+XF86AudioPrev
+	playerctl -p spotify previous
+
+XF86AudioNext
+	playerctl -p spotify next
+
+XF86AudioPlay
+	playerctl -p spotify play-pause
+
+XF86AudioMute
+    ~/scripts/volume.sh mute
+
+XF86AudioLowerVolume
+    ~/scripts/volume.sh down
+
+XF86AudioRaiseVolume
+    ~/scripts/volume.sh up
+
+XF86MonBrightnessDown
+	~/scripts/brightness.sh down
+
+XF86MonBrightnessUp
+	~/scripts/brightness.sh up
 
 #
 # bspwm hotkeys
