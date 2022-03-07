@@ -1,5 +1,10 @@
 #!/bin/sh
 
-URL=$(curl -H "Content-Type: multipart/form-data" -H "authorization: $(sed -n 1p $HOME/.auth)" -F file="@$1" https://advil.me/api/upload)
+FILE="$1"
+if [ -d "$1" ]; then
+    FILE="$1/$(ls -t "$1" | head -n1)"
+fi
+
+URL=$(curl -H "Content-Type: multipart/form-data" -H "authorization: $(sed -n 1p $HOME/.auth)" -F file="@$FILE" https://advil.me/api/upload)
 
 echo -n $URL
