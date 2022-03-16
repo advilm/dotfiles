@@ -1,0 +1,12 @@
+{
+  "manifest_version": "1",
+  "name": "Matcha-azul",
+  "display_name": "Matcha-azul",
+  "extend_theme": "light",
+  "css_file": "theme.css",
+  "css_file_gtk_3.20+": "theme-gtk-3.20.css",
+  "matched_text_hl_colors": {
+      "when_selected": "#2b2f3b",
+      "when_not_selected": "#2b2f3b"
+  }
+}
