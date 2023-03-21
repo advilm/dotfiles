@@ -12,9 +12,15 @@ playerctl -a pause > /dev/null
 old_mute="$(amixer get Master | tail -2 | grep '\[on\]')"
 amixer set Master mute > /dev/null
 
+SECONDS_PASSED=0
 # Waits for i3lock to die or valid fingerprint to kill i3lock
 wait_fingerprint() {
     while pidof i3lock > /dev/null; do
+        ((SECONDS_PASSED += 5))
+        if [ $SECONDS_PASSED -gt 60 ]; then
+            break
+        fi
+
         if (timeout 5 fprintd-verify | grep -q verify-match); then
             pkill i3lock
         fi
@@ -26,15 +32,15 @@ if [[ -e /dev/fd/${XSS_SLEEP_LOCK_FD:--1} ]]; then
     kill_i3lock() {
         pkill -xu $EUID "$@" i3lock
     }
-    
+
     trap kill_i3lock TERM INT
-    
+
     # we have to make sure the locker does not inherit a copy of the lock fd
     i3lock -ui /tmp/screenshot.png {XSS_SLEEP_LOCK_FD}<&-
-    
+
     # now close our fd (only remaining copy) to indicate we're ready to sleep
     exec {XSS_SLEEP_LOCK_FD}<&-
-    
+
     wait_fingerprint
 else
     trap 'kill %%' TERM INT

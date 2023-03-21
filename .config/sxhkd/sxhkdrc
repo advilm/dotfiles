@@ -46,6 +46,9 @@ XF86AudioNext
 XF86AudioPlay
 	playerctl -p spotify play-pause
 
+XF86AudioPause
+        playerctl -p spotify play-pause
+
 XF86AudioMute
     ~/scripts/volume.sh mute
 
@@ -100,6 +103,10 @@ super + ctrl + {m,x,y,z}
 #
 # focus/swap
 #
+
+# rotate
+super + r
+        bspc node @parent -R 90
 
 # focus the node in the given direction
 super + {_,shift + }{j,k,l,semicolon}

@@ -3,6 +3,7 @@ source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 export WINIT_X11_SCALE_FACTOR=1.5
 export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_QPA_PLATFORMTHEME=qt5ct
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 xrdb -merge ~/.Xresources
 xset b off
