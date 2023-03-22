@@ -1,0 +1,14 @@
+add_newline = false
+
+[character]
+success_symbol = '[❯](bold white)'
+
+[username]
+format = '[$user@]($style)'
+show_always = true
+style_user = 'bold white'
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol$hostname]($style) '
+style = 'bold white'
