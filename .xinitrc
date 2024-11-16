@@ -8,8 +8,10 @@ export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 xrdb -merge ~/.Xresources
 xset b off
 xsetroot -cursor_name left_ptr
-setxkbmap -option caps:super
-# xbindkeys
+
+setxkbmap -layout us -variant dvorak_mod -option 'grp:alt_caps_toggle' -option 'lv3:ralt_switch' -option 'caps:super'
+ksuperkey -e 'Super_L=Escape'
+
 if [ "$(xfconf-query -c xsettings -p /Net/ThemeName)" = "Matcha-dark-azul" ]; then
   hsetroot -solid '#020e1d'
 else

@@ -1,0 +1,65 @@
+[colors.bright]
+black = "#7a8181"
+blue = "#5ca7e4"
+cyan = "#00c990"
+green = "#49d0c5"
+magenta = "#697098"
+red = "#f76e6e"
+white = "#989fb1"
+yellow = "#dac26b"
+
+[colors.cursor]
+cursor = "#403f53"
+text = "#fbfbfb"
+
+[colors.normal]
+black = "#011627"
+blue = "#4876d6"
+cyan = "#08916a"
+green = "#2aa298"
+magenta = "#403f53"
+red = "#d3423e"
+white = "#7a8181"
+yellow = "#daaa01"
+
+[colors.primary]
+background = "#f7f7f7"
+foreground = "#403f53"
+
+[colors.selection]
+background = "#f2f2f2"
+text = "#403f53"
+
+[font]
+size = 11
+
+[font.bold]
+family = "MesloLGS NF"
+style = "Bold"
+
+[font.bold_italic]
+family = "MesloLGS NF"
+style = "Bold Italic"
+
+[font.italic]
+family = "MesloLGS NF"
+style = "Italic"
+
+[font.normal]
+family = "MesloLGS NF"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window]
+title = "Alacritty"
+
+[window.padding]
+x = 6
+y = 6
