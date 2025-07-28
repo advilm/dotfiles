@@ -101,7 +101,7 @@
         "network#up" = {
             interval = 3;
             format = "<span color='#82AAFF'></span> {bandwidthUpBytes}";
-            format-disconnected = "AA";
+            format-disconnected = "";
             tooltip-format = "{ifname} via {gwaddr} 󰊗";
             tooltip-format-wifi = "{essid} ({signalStrength}%) ";
             tooltip-format-ethernet = "{ifname} ";
