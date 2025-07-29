@@ -6,6 +6,8 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
+
     "${nixosModules}/common"
     "${nixosModules}/desktops/hyprland"
     "${nixosModules}/programs/docker"
@@ -17,6 +19,9 @@
     "${nixosModules}/services/keyd"
     "${nixosModules}/services/openssh"
   ];
+
+  hardware.framework.enableKmod = true;
+  hardware.framework.laptop13.audioEnhancement.enable = true;
 
   # limit to laptop keyboard
   services.keyd.keyboards.default.ids = [ "0001:0001:70533846" ];
