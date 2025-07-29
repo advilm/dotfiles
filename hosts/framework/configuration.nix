@@ -26,7 +26,10 @@
   hardware.framework.enableKmod = true;
   hardware.framework.laptop13.audioEnhancement.enable = true;
 
-  services.fwupd.enable = true;
+  # enable when doing firmware updates
+  services.fwupd.enable = false;
+
+  console.keyMap = "dvorak";
 
   # limit to laptop keyboard
   services.keyd.keyboards.default.ids = [ "0001:0001:70533846" ];
