@@ -22,6 +22,7 @@
   
   wayland.windowManager.hyprland.settings = {
     input.kb_variant = "dvorak";
+    input.touchpad.drag_lock = 1;
     gestures = {
       workspace_swipe = true;
       workspace_swipe_invert = false;

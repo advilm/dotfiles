@@ -65,13 +65,15 @@
       isDefault = true;
       settings = {
         "signon.rememberSignons" = false;
-        "browser.download.dir" = "/home/${user}/downloads";
         "browser.warnOnQuit" = false;
         "browser.aboutConfig.showWarning" = false;
         "sidebar.verticalTabs" = true;
         "sidebar.main.tools" = "";
         "browser.ml.chat.enabled" = false;
         "general.autoScroll" = true;
+
+        "browser.download.dir" = "/home/${user}/downloads";
+        "browser.download.folderList" = 2;
 
         "browser.urlbar.suggest.history" = false;
         "browser.urlbar.suggest.openpage" = false;
