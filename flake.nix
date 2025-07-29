@@ -21,7 +21,7 @@
       advil = {
         name = "Adil Mohiuddin";
         email = "adil.mohiuddin07@gmail.com";
-        signing_key = "6FBA6A6C05222F8C7B78AF46CA480FE4413C79FC";
+        signing_key = "26240A39D41B8ECB";
       };
     };
     mkConfiguration = user: host:
