@@ -1,7 +1,6 @@
 { ... }: {
   services.kanshi = {
     enable = true;
-    systemdTarget = "hyprland-session.target";
     settings = [
       {
         output = {
@@ -28,7 +27,10 @@
       {
         profile = {
           name = "laptop";
-          outputs = [{ criteria = "BOE 0x095F Unknown"; }];
+          outputs = [{
+            criteria = "BOE 0x095F Unknown";
+            status = "enable";
+          }];
         };
       }
       {

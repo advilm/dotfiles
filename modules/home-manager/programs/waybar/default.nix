@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   home.packages = with pkgs; [
     font-awesome
     swaybg
@@ -77,9 +77,11 @@
           on-scroll-down = "hyprctl dispatch workspace r-1";
           on-click = "activate";
           all-outputs = true;
-          persistent-workspaces = {
-            "*" = 10;
-          };
+          persistent-workspaces =
+            let
+              attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (i: []);
+            in
+              attrSet;
         };
         "wlr/taskbar" = {
           on-click = "activate";
