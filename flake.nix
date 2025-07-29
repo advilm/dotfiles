@@ -9,10 +9,13 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland.url = "github:hyprwm/Hyprland";
 
     anyrun.url = "github:anyrun-org/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +50,7 @@
               hmModules = "${self}/modules/home-manager";
             };
           }
+          inputs.nur.modules.nixos.default
           inputs.nix-index-database.nixosModules.nix-index
           { environment.systemPackages = [ inputs.anyrun.packages."x86_64-linux".anyrun ]; }
         ];
