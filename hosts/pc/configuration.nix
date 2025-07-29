@@ -10,6 +10,7 @@
     "${nixosModules}/desktops/hyprland"
     "${nixosModules}/programs/docker"
     "${nixosModules}/programs/nautilus"
+    "${nixosModules}/programs/nh"
     "${nixosModules}/programs/overskride"
     "${nixosModules}/programs/steam"
     "${nixosModules}/services/openssh"
