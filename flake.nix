@@ -52,6 +52,7 @@
   in {
     nixosConfigurations = {
       pc = mkConfiguration "advil" "pc";
+      framework = mkConfiguration "advil" "framework";
     };
   };
 }

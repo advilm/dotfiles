@@ -93,9 +93,9 @@
         "$mod, mouse:273, resizewindow"
       ];
       animations = {
-        enabled = false;
+        enabled = lib.mkDefault false;
       };
-      monitor = ", highrr, auto, 1";
+      monitor = lib.mkDefault ", highrr, auto, 1";
       exec-once = [
         "waybar" # TODO: Run through systemd
         "swaybg -c 020e1d"
