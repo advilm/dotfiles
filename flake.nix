@@ -17,10 +17,18 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs : let 
+    userConfigs = {
+      advil = {
+        name = "Adil Mohiuddin";
+        email = "adil.mohiuddin07@gmail.com";
+        signing_key = "6FBA6A6C05222F8C7B78AF46CA480FE4413C79FC";
+      };
+    };
     mkConfiguration = user: host:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs nixpkgs host user;
+          userConfig = userConfigs.${user};
           nixosModules = "${self}/modules/nixos";
         };
         modules = [
@@ -33,6 +41,7 @@
 
             home-manager.extraSpecialArgs = { 
               inherit inputs user;
+              userConfig = userConfigs.${user};
               hmModules = "${self}/modules/home-manager";
             };
           }

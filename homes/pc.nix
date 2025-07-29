@@ -11,6 +11,7 @@
     "${hmModules}/programs/firefox"
     "${hmModules}/programs/fish"
     "${hmModules}/programs/fzf"
+    "${hmModules}/programs/git"
     "${hmModules}/programs/vesktop"
     "${hmModules}/programs/vscode"
     "${hmModules}/programs/waybar"
