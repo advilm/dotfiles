@@ -18,6 +18,7 @@
     "${nixosModules}/programs/brightnessctl"
     "${nixosModules}/services/keyd"
     "${nixosModules}/services/openssh"
+    "${nixosModules}/services/tlp"
   ];
 
   hardware.framework.enableKmod = true;
