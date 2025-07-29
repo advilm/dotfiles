@@ -16,6 +16,7 @@
     "${hmModules}/programs/vscode"
     "${hmModules}/programs/waybar"
     "${hmModules}/programs/yazi"
+    "${hmModules}/services/kanshi"
     "${hmModules}/services/playerctld"
   ];
 }

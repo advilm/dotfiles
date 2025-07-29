@@ -95,10 +95,13 @@
       animations = {
         enabled = lib.mkDefault false;
       };
-      monitor = lib.mkDefault ", highrr, auto, 1";
+      monitor = lib.mkDefault ", preferred, auto, auto";
       exec-once = [
-        "waybar" # TODO: Run through systemd
+        "waybar"
         "swaybg -c 020e1d"
+      ];
+      exec = [
+        "kanshictl reload"
       ];
       workspace = [
         "w[t1], gapsout:0, gapsin:0, bordersize:0"

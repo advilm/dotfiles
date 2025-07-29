@@ -16,6 +16,7 @@
     "${hmModules}/programs/vscode"
     "${hmModules}/programs/waybar"
     "${hmModules}/programs/yazi"
+    "${hmModules}/services/kanshi"
     "${hmModules}/services/playerctld"
   ];
   
@@ -29,7 +30,6 @@
       workspace_swipe_distance = 2;
       workspace_swipe_cancel_ratio = 0.01;
     };
-    monitor = ", preferred, auto, 1.333333";
     binde = [
       ",XF86MonBrightnessDown, exec, brightnessctl s 5-%"
       ",XF86MonBrightnessUp, exec, brightnessctl s 5+%"
