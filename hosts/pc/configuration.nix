@@ -12,6 +12,7 @@
     "${nixosModules}/programs/nautilus"
     "${nixosModules}/programs/nh"
     "${nixosModules}/programs/overskride"
+    "${nixosModules}/programs/signal"
     "${nixosModules}/programs/spotify"
     "${nixosModules}/programs/steam"
     "${nixosModules}/services/openssh"
