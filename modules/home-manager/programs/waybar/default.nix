@@ -115,7 +115,7 @@
         };
         cpu = {
           interval = 3;
-          format = "<span color='#82AAFF'></span> {}%";
+          format = "<span color='#82AAFF'></span> {usage}%";
         };
         "clock#date" = {
           interval = 1;
