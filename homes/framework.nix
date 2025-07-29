@@ -24,6 +24,7 @@
     gestures = {
       workspace_swipe = true;
       workspace_swipe_invert = false;
+      # remove swipe animation
       workspace_swipe_min_speed_to_force = 0;
       workspace_swipe_distance = 2;
       workspace_swipe_cancel_ratio = 0.01;
