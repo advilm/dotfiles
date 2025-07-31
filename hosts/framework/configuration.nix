@@ -21,6 +21,7 @@
     "${nixosModules}/services/keyd"
     "${nixosModules}/services/openssh"
     "${nixosModules}/services/tlp"
+    "${nixosModules}/services/zerotier"
   ];
 
   hardware.framework.enableKmod = true;
