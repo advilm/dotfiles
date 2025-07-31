@@ -1,4 +1,4 @@
-{ hmModules, ... }: {
+{ hmModules, pkgs, ... }: {
   imports = [
     "${hmModules}/common"
     "${hmModules}/misc/cursor"
@@ -18,6 +18,10 @@
     "${hmModules}/programs/yazi"
     "${hmModules}/services/kanshi"
     "${hmModules}/services/playerctld"
+  ];
+
+  home.packages = with pkgs; [
+    intel-gpu-tools
   ];
   
   wayland.windowManager.hyprland.settings = {
