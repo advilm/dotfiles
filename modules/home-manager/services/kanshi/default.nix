@@ -35,7 +35,7 @@
       }
       {
         profile = {
-          name = "laptop+external";
+          name = "laptop-home";
           outputs = [
             { 
               criteria = "BOE 0x095F Unknown"; 
@@ -43,8 +43,24 @@
             } 
             { 
               criteria = "Dell Inc. DELL G2724D 82K16Y3"; 
-              mode = "2560x1440@59.95100";
-              position = "2560,0";
+              status = "enable";
+              # mode = "2560x1440@59.95100";
+              # position = "2560,0";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
+          name = "laptop-external";
+          outputs = [
+            { 
+              criteria = "BOE 0x095F Unknown"; 
+              status = "disable";
+            } 
+            { 
+              criteria = "*";
+              status = "enable";
             }
           ];
         };
