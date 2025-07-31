@@ -23,6 +23,10 @@
   wayland.windowManager.hyprland.settings = {
     input.kb_variant = "dvorak";
     input.touchpad.drag_lock = 1;
+    device = [{
+      name = "yiancar-designs-nk65b";
+      kb_variant = "";
+    }];
     gestures = {
       workspace_swipe = true;
       workspace_swipe_invert = false;

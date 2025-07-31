@@ -33,6 +33,7 @@
       input = {
         follow_mouse = 2;
         float_switch_override_focus = 0;
+        resolve_binds_by_sym = true;
       };
       dwindle = {
         force_split = 2;
