@@ -23,7 +23,6 @@
     extraCss = ''
       #window {
         background: transparent;
-        opacity: 0%;
       }
     '';
   };

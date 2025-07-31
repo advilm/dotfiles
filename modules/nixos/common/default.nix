@@ -16,6 +16,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.tmp.useTmpfs = true;
+
   networking.hostName = host;
   networking.networkmanager.enable = true;
 
