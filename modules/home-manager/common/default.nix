@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     jellyfin-media-player
     mpv
+    ncdu
     neovim
     pavucontrol
   ];
