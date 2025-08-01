@@ -6,6 +6,7 @@
 
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     style = ''
       * {
         font-family: "MesloLGS Nerd Font Propo";

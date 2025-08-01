@@ -98,7 +98,6 @@
       };
       monitor = lib.mkDefault ", preferred, auto, auto";
       exec-once = [
-        "waybar"
         "swaybg -c 020e1d"
       ];
       exec = [
