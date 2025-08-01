@@ -26,7 +26,11 @@
   
   wayland.windowManager.hyprland.settings = {
     input.kb_variant = "dvorak";
-    input.touchpad.drag_lock = 1;
+    input.touchpad = {
+      disable_while_typing = "yes";
+      scroll_factor = 0.7;
+      drag_lock = 1;
+    };
     device = [{
       name = "yiancar-designs-nk65b";
       kb_variant = "";

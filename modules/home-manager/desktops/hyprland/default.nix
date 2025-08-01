@@ -31,9 +31,10 @@
         no_warps = true;
       };
       input = {
-        follow_mouse = 2;
         float_switch_override_focus = 0;
         resolve_binds_by_sym = true;
+        follow_mouse = 2;
+        accel_profile = "flat";
       };
       dwindle = {
         force_split = 2;
