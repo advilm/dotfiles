@@ -54,10 +54,14 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    wireplumber.extraConfig = {
+      "51-hsp-autoswitch-disable" = {
+        "wireplumber.settings" = {
+          "bluetooth.autoswitch-to-headset-profile" = false;
+        };
+      };
+    };
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
 
   users.users.${user} = {
     isNormalUser = true;

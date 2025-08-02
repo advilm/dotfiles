@@ -2,6 +2,7 @@
   inputs,
   host,
   nixosModules,
+  pkgs,
   ...
 }: {
   imports = [
@@ -11,12 +12,23 @@
     "${nixosModules}/programs/docker"
     "${nixosModules}/programs/nautilus"
     "${nixosModules}/programs/nh"
-    "${nixosModules}/programs/overskride"
-    "${nixosModules}/programs/signal"
-    "${nixosModules}/programs/spotify"
     "${nixosModules}/programs/steam"
     "${nixosModules}/services/openssh"
   ];
 
   networking.firewall.allowedTCPPorts = [ 32400 ];
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
 }
