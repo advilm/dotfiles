@@ -16,7 +16,7 @@
     "${hmModules}/programs/overskride"
     "${hmModules}/programs/signal"
     "${hmModules}/programs/spotify"
-    "${hmModules}/programs/vesktop"
+    "${hmModules}/programs/discord"
     "${hmModules}/programs/vscode"
     "${hmModules}/programs/waybar"
     "${hmModules}/programs/yazi"
