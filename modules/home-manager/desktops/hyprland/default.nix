@@ -111,6 +111,7 @@
       windowrule = [
         "bordersize 2, floating:1, onworkspace:f[-1]"
         "float, class:^io.github.kaii_lb.Overskride$"
+        "float, title:^(File Upload|Open Files)$"
         "noborder, title:Albert"
       ];
     };
