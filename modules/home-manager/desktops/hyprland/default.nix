@@ -110,7 +110,7 @@
       ];
       windowrule = [
         "bordersize 2, floating:1, onworkspace:f[-1]"
-        "float, class:io.github.kaii_lb.Overskride"
+        "float, class:^io.github.kaii_lb.Overskride$"
         "noborder, title:Albert"
       ];
     };
