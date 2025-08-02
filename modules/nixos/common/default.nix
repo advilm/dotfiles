@@ -65,7 +65,7 @@
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" ];
+    extraGroups = [ "wheel" "docker" "networkmanager" "i2c" ];
     shell = pkgs.fish;
   };
 
@@ -73,8 +73,9 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment = {
     systemPackages = with pkgs; [
-        vim
+        ddcutil
         git
+        vim
         wget
     ];
     sessionVariables = {
@@ -89,6 +90,9 @@
     enable = true;
     enableFishIntegration = true;
   };
+
+  # for ddcutil to be able to control monitor brightness
+  hardware.i2c.enable = true;
 
   # Most users should NEVER change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.
