@@ -63,6 +63,9 @@
     };
   };
 
+  # for redshift
+  location.provider = "geoclue2";
+
   users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "networkmanager" "i2c" ];
