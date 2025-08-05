@@ -32,8 +32,15 @@
 
   boot.tmp.useTmpfs = true;
 
-  networking.hostName = host;
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = host;
+
+    networkmanager.enable = true;
+    networkmanager.dns = "none";
+    networkmanager.wifi.backend = "iwd";
+
+    nameservers = [ "1.1.1.1" ];
+  };
 
   time.timeZone = "America/Los_Angeles";
 
