@@ -13,6 +13,7 @@
     "${nixosModules}/programs/docker"
     "${nixosModules}/programs/nautilus"
     "${nixosModules}/programs/nh"
+    "${nixosModules}/programs/obs-studio"
     "${nixosModules}/programs/steam"
     "${nixosModules}/services/keyd"
     "${nixosModules}/services/openssh"
