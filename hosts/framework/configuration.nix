@@ -21,6 +21,8 @@
     "${nixosModules}/services/zerotier"
   ];
 
+  boot.kernelParams = ["i915.force_probe=!9a49" "xe.force_probe=9a49" ];
+
   hardware.framework.enableKmod = true;
   # hardware.framework.laptop13.audioEnhancement.enable = true;
 
