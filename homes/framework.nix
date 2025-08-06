@@ -10,7 +10,6 @@
     "${hmModules}/programs/anyrun"
     "${hmModules}/programs/brightnessctl"
     "${hmModules}/programs/firefox"
-    "${hmModules}/programs/fish"
     "${hmModules}/programs/fzf"
     "${hmModules}/programs/git"
     "${hmModules}/programs/overskride"
@@ -49,8 +48,8 @@
       workspace_swipe_cancel_ratio = 0.01;
     };
     binde = [
-      ",XF86MonBrightnessDown, exec, brightnessctl s 5-%"
-      ",XF86MonBrightnessUp, exec, brightnessctl s 5+%"
+      ",XF86MonBrightnessDown, exec, brightnessctl set -e 5-%"
+      ",XF86MonBrightnessUp, exec, brightnessctl set -e 5+%"
     ];
   };
 }

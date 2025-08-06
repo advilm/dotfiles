@@ -9,7 +9,6 @@
     "${hmModules}/programs/alacritty"
     "${hmModules}/programs/anyrun"
     "${hmModules}/programs/firefox"
-    "${hmModules}/programs/fish"
     "${hmModules}/programs/fzf"
     "${hmModules}/programs/git"
     "${hmModules}/programs/overskride"

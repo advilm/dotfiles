@@ -26,6 +26,13 @@
 
   programs.mangohud.enable = true;
 
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting
+    '';
+  };
+
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
