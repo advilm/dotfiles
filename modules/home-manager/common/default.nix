@@ -26,6 +26,12 @@
 
   programs.mangohud.enable = true;
 
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    settings.add_newline = false;
+  };
+
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
