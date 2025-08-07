@@ -87,6 +87,7 @@
         git
         vim
         wget
+        seahorse
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -100,6 +101,13 @@
     enable = true;
     enableFishIntegration = true;
   };
+
+  # secrets manager
+  services.gnome.gnome-keyring.enable = true;
+
+  # skip typing username on login
+  services.getty.loginOptions = "-p -- ${user}";
+  services.getty.extraArgs = [ "--skip-login" ];
 
   # for ddcutil to be able to control monitor brightness
   hardware.i2c.enable = true;
