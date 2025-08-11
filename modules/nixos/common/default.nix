@@ -88,6 +88,7 @@
         vim
         wget
         seahorse
+        libsecret
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

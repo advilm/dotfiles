@@ -44,6 +44,9 @@
         focus_on_activate = true;
         new_window_takes_over_fullscreen = true;
       };
+      xwayland = {
+        force_zero_scaling = true;
+      };
       bind =
         [
           "$mod, return, exec, uwsm app -- alacritty"
@@ -65,7 +68,7 @@
                 "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
               ]
             )
-            9)
+            10)
         ) ++ (
         let
           directions = [
