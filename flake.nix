@@ -68,9 +68,14 @@
       inherit pkgs;
       modules = [ ./modules/nvf ];
     };
+    pkgs-aarch64 = import nixpkgs { system = "aarch64-darwin"; };
+    nvfConfig-aarch64 = inputs.nvf.lib.neovimConfiguration {
+      pkgs = pkgs-aarch64;
+      modules = [ ./modules/nvf ];
+    };
   in {
     packages."x86_64-linux".neovim = nvfConfig.neovim;
-    packages."aarch64-darwin".neovim = nvfConfig.neovim;
+    packages."aarch64-darwin".neovim = nvfConfig-aarch64.neovim;
 
     nixosConfigurations = {
       pc = mkConfiguration "advil" "pc";
