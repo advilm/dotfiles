@@ -16,4 +16,6 @@
 
     mkdir.enable = true;
   };
+
+  vim.extraPackages = [ pkgs.yazi ];
 } 
