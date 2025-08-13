@@ -69,7 +69,8 @@
       modules = [ ./modules/nvf ];
     };
   in {
-    packages.${system}.neovim = nvfConfig.neovim;
+    packages."x86_64-linux".neovim = nvfConfig.neovim;
+    packages."aarch64-darwin".neovim = nvfConfig.neovim;
 
     nixosConfigurations = {
       pc = mkConfiguration "advil" "pc";
