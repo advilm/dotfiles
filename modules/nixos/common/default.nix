@@ -75,7 +75,14 @@
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" "i2c" ];
+    extraGroups = [
+      "wheel"
+      "audio"
+      "video"
+      "networkmanager"
+      "docker"
+      "i2c"
+    ];
     shell = pkgs.fish;
   };
 
