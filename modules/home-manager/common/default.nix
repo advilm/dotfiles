@@ -6,8 +6,8 @@
     jellyfin-media-player
     mpv
     ncdu
-    neovim
     pavucontrol
+    ripgrep
   ];
 
   home.sessionVariables = {

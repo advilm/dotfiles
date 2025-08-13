@@ -96,6 +96,8 @@
     };
   };
 
+  documentation.man.generateCaches = false;
+
   programs.fish.enable = true;
   programs.gnupg.agent.enable = true;
   programs.nix-index = {

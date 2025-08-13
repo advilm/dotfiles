@@ -41,8 +41,10 @@
         preserve_split = true;
       };
       misc = {
+        vrr = 1;
         focus_on_activate = true;
         new_window_takes_over_fullscreen = true;
+        anr_missed_pings = 5;
       };
       xwayland = {
         force_zero_scaling = true;

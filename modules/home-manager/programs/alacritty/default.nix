@@ -7,6 +7,6 @@
         y = 6;
       };
     };
-    theme = "alabaster_dark";
+    theme = "ayu_dark";
   };
 }
