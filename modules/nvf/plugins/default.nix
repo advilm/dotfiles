@@ -1,0 +1,11 @@
+{ pkgs, lib, ... }: {
+  imports = [
+    ./auto-save.nix
+    ./fzf-lua.nix
+    ./guess-indent.nix
+    ./grug-far.nix
+    ./incline.nix
+    ./snacks.nix
+    ./treesj.nix
+  ];
+} 

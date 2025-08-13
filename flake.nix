@@ -17,9 +17,14 @@
 
     anyrun.url = "github:anyrun-org/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
+
+    nvf.url = "github:notashelf/nvf";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs : let 
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
     userConfigs = {
       advil = {
         name = "Adil Mohiuddin";
@@ -50,10 +55,22 @@
           }
           inputs.nur.modules.nixos.default
           inputs.nix-index-database.nixosModules.nix-index
-          { environment.systemPackages = [ inputs.anyrun.packages."x86_64-linux".anyrun ]; }
+          { 
+            # flake packages
+            environment.systemPackages = [ 
+              inputs.anyrun.packages.${system}.anyrun
+              self.packages.${system}.neovim
+            ];
+          }
         ];
       };
+    nvfConfig = inputs.nvf.lib.neovimConfiguration {
+      inherit pkgs;
+      modules = [ ./modules/nvf ];
+    };
   in {
+    packages.${system}.neovim = nvfConfig.neovim;
+
     nixosConfigurations = {
       pc = mkConfiguration "advil" "pc";
       framework = mkConfiguration "advil" "framework";
