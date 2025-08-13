@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   hardware.bluetooth.enable = true;
 
   programs.hyprland.enable = true;

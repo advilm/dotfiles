@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   vim.utility =  {
     yazi-nvim = {
       enable = true;

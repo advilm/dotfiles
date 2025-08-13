@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   imports = [
     ./auto-save.nix
     ./fzf-lua.nix

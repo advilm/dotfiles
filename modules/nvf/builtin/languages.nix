@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   vim.languages = {
     enableTreesitter = true;
     enableFormat = true;

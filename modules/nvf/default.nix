@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   imports = [
     ./builtin
     ./plugins

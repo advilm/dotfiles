@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   vim.theme = {
     enable = true;
     name = "mini-base16";

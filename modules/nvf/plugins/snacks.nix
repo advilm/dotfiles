@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   vim.lazy.plugins."snacks.nvim" = {
     package = pkgs.vimPlugins.snacks-nvim;
     lazy = false;

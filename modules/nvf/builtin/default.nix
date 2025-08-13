@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   imports = [
     ./comments.nix
     ./formatter.nix
