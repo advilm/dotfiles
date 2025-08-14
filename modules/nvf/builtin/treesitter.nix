@@ -37,6 +37,10 @@
       typescript
     ];
     context.enable = true;
-    context.setupOpts.separator = null;
+    context.setupOpts = {
+      separator = null;
+      max_lines = 8;
+      multiline_threshold = 1;
+    };
   };
 }
