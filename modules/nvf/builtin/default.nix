@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./comments.nix
+    ./copilot.nix
     ./formatter.nix
     ./languages.nix
     ./lsp.nix
