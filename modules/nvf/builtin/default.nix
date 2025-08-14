@@ -12,4 +12,4 @@ _: {
     ./utility.nix
     ./visuals.nix
   ];
-} 
+}

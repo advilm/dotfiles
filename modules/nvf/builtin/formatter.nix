@@ -2,14 +2,16 @@ _: {
   vim.formatter.conform-nvim = {
     enable = true;
     setupOpts = {
-      formatters = {
-        prettier.command = "node_modules/.bin/prettier";
-      };
       formatters_by_ft = {
-        javascript = ["prettier"];
-        typescript = ["prettier"];
-        typescriptreact = ["prettier"];
+        "*" = [
+          "trim_whitespace"
+          "trim_newlines"
+        ];
+      };
+      default_format_ops = {
+        lsp_format = "fallback";
+        async = true;
       };
     };
   };
-} 
+}

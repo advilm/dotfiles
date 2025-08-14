@@ -22,8 +22,5 @@ _: {
       crates.enable = true;
     };
     tailwind.enable = true;
-
-    ts.format.enable = false;
-    css.format.enable = false;
   };
-} 
+}

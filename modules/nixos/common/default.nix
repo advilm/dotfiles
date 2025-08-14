@@ -2,7 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ lib, pkgs, inputs, user, host, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  user,
+  host,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -11,11 +18,14 @@
 
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
     };
     # use nixpkgs from flake for nix commands
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     registry.nixpkgs = {
       from = {
         id = "nixpkgs";
@@ -90,12 +100,12 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment = {
     systemPackages = with pkgs; [
-        ddcutil
-        git
-        vim
-        wget
-        seahorse
-        libsecret
+      ddcutil
+      git
+      vim
+      wget
+      seahorse
+      libsecret
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";

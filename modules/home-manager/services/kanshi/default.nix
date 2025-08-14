@@ -21,28 +21,30 @@ _: {
       {
         profile = {
           name = "desktop";
-          outputs = [{ criteria = "Dell Inc. DELL G2724D 82K16Y3"; }];
+          outputs = [ { criteria = "Dell Inc. DELL G2724D 82K16Y3"; } ];
         };
       }
       {
         profile = {
           name = "laptop";
-          outputs = [{
-            criteria = "BOE 0x095F Unknown";
-            status = "enable";
-          }];
+          outputs = [
+            {
+              criteria = "BOE 0x095F Unknown";
+              status = "enable";
+            }
+          ];
         };
       }
       {
         profile = {
           name = "laptop-home";
           outputs = [
-            { 
-              criteria = "BOE 0x095F Unknown"; 
+            {
+              criteria = "BOE 0x095F Unknown";
               status = "disable";
-            } 
-            { 
-              criteria = "Dell Inc. DELL G2724D 82K16Y3"; 
+            }
+            {
+              criteria = "Dell Inc. DELL G2724D 82K16Y3";
               status = "enable";
               # mode = "2560x1440@59.95100";
               # position = "2560,0";
@@ -54,11 +56,11 @@ _: {
         profile = {
           name = "laptop-external";
           outputs = [
-            { 
-              criteria = "BOE 0x095F Unknown"; 
+            {
+              criteria = "BOE 0x095F Unknown";
               status = "disable";
-            } 
-            { 
+            }
+            {
               criteria = "*";
               status = "enable";
             }

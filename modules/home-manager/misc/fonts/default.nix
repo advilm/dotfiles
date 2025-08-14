@@ -1,9 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     corefonts
     vista-fonts
   ];
-  
+
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {

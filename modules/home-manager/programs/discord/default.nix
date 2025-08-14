@@ -13,7 +13,7 @@ _: {
       appBadge = false;
       disableMinSize = true;
       customTitleBar = false;
-      
+
       enableSplashScreen = false;
     };
   };

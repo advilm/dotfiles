@@ -8,4 +8,4 @@ _: {
     ./snacks.nix
     ./treesj.nix
   ];
-} 
+}

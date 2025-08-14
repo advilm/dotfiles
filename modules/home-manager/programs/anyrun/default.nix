@@ -1,10 +1,17 @@
-{ inputs, pkgs, ... } :{
+{ inputs, pkgs, ... }:
+{
   programs.anyrun = {
     enable = true;
     config = {
-      x = { fraction = 0.5; };
-      y = { fraction = 0.4; };
-      width = { fraction = 0.25; };
+      x = {
+        fraction = 0.5;
+      };
+      y = {
+        fraction = 0.4;
+      };
+      width = {
+        fraction = 0.25;
+      };
       hideIcons = false;
       ignoreExclusiveZones = true;
       layer = "overlay";

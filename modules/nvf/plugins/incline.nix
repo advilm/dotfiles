@@ -1,11 +1,15 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   vim.lazy.plugins."incline.nvim" = {
     package = pkgs.vimPlugins.incline-nvim;
     setupModule = "incline";
     setupOpts = {
       window = {
         padding = 0;
-        margin = { horizontal = 0; vertical = 0; };
+        margin = {
+          horizontal = 0;
+          vertical = 0;
+        };
       };
       render = lib.generators.mkLuaInline "
         function(props)
@@ -27,4 +31,4 @@
         end";
     };
   };
-} 
+}

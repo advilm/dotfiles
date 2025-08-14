@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-  vim.utility =  {
+{ pkgs, ... }:
+{
+  vim.utility = {
     yazi-nvim = {
       enable = true;
       setupOpts = {
@@ -8,7 +9,7 @@
         grep_in_selected_files = "fzf-lua";
       };
     };
-    
+
     surround = {
       enable = true;
       useVendoredKeybindings = false;
@@ -23,4 +24,4 @@
   };
 
   vim.extraPackages = [ pkgs.yazi ];
-} 
+}

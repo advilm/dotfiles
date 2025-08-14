@@ -7,4 +7,4 @@ _: {
     shiftwidth = 4;
     # grepprg = "rg --vimgrep";
   };
-} 
+}

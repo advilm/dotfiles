@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -22,64 +22,79 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs : let 
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
-    userConfigs = {
-      advil = {
-        name = "Adil Mohiuddin";
-        email = "adil.mohiuddin07@gmail.com";
-        signing_key = "26240A39D41B8ECB";
-      };
-    };
-    mkConfiguration = user: host:
-      nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs nixpkgs host user;
-          userConfig = userConfigs.${user};
-          nixosModules = "${self}/modules/nixos";
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+      userConfigs = {
+        advil = {
+          name = "Adil Mohiuddin";
+          email = "adil.mohiuddin07@gmail.com";
+          signing_key = "26240A39D41B8ECB";
         };
-        modules = [
-          ./hosts/${host}/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = ./homes/${host}.nix;
-
-            home-manager.extraSpecialArgs = { 
-              inherit inputs user;
-              userConfig = userConfigs.${user};
-              hmModules = "${self}/modules/home-manager";
-            };
-          }
-          inputs.nur.modules.nixos.default
-          inputs.nix-index-database.nixosModules.nix-index
-          { 
-            # flake packages
-            environment.systemPackages = [ 
-              inputs.anyrun.packages.${system}.anyrun
-              self.packages.${system}.neovim
-            ];
-          }
-        ];
       };
-    nvfConfig = inputs.nvf.lib.neovimConfiguration {
-      inherit pkgs;
-      modules = [ ./modules/nvf ];
-    };
-    pkgs-aarch64 = import nixpkgs { system = "aarch64-darwin"; };
-    nvfConfig-aarch64 = inputs.nvf.lib.neovimConfiguration {
-      pkgs = pkgs-aarch64;
-      modules = [ ./modules/nvf ];
-    };
-  in {
-    packages."x86_64-linux".neovim = nvfConfig.neovim;
-    packages."aarch64-darwin".neovim = nvfConfig-aarch64.neovim;
+      mkConfiguration =
+        user: host:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit
+              inputs
+              nixpkgs
+              host
+              user
+              ;
+            userConfig = userConfigs.${user};
+            nixosModules = "${self}/modules/nixos";
+          };
+          modules = [
+            ./hosts/${host}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user} = ./homes/${host}.nix;
 
-    nixosConfigurations = {
-      pc = mkConfiguration "advil" "pc";
-      framework = mkConfiguration "advil" "framework";
+              home-manager.extraSpecialArgs = {
+                inherit inputs user;
+                userConfig = userConfigs.${user};
+                hmModules = "${self}/modules/home-manager";
+              };
+            }
+            inputs.nur.modules.nixos.default
+            inputs.nix-index-database.nixosModules.nix-index
+            {
+              # flake packages
+              environment.systemPackages = [
+                inputs.anyrun.packages.${system}.anyrun
+                self.packages.${system}.neovim
+              ];
+            }
+          ];
+        };
+      nvfConfig = inputs.nvf.lib.neovimConfiguration {
+        inherit pkgs;
+        modules = [ ./modules/nvf ];
+      };
+      pkgs-aarch64 = import nixpkgs { system = "aarch64-darwin"; };
+      nvfConfig-aarch64 = inputs.nvf.lib.neovimConfiguration {
+        pkgs = pkgs-aarch64;
+        modules = [ ./modules/nvf ];
+      };
+    in
+    {
+      nixosConfigurations = {
+        pc = mkConfiguration "advil" "pc";
+        framework = mkConfiguration "advil" "framework";
+      };
+
+      packages.x86_64-linux.neovim = nvfConfig.neovim;
+      packages.aarch64-darwin.neovim = nvfConfig-aarch64.neovim;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
     };
-  };
 }

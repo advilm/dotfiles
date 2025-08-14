@@ -1,4 +1,5 @@
-{ hmModules, pkgs, ... }: {
+{ hmModules, pkgs, ... }:
+{
   imports = [
     "${hmModules}/common"
     "${hmModules}/misc/cursor"
@@ -27,7 +28,7 @@
   home.packages = with pkgs; [
     intel-gpu-tools
   ];
-  
+
   wayland.windowManager.hyprland.settings = {
     input.kb_variant = "dvorak";
     input.touchpad = {
@@ -35,10 +36,12 @@
       scroll_factor = 0.7;
       drag_lock = 1;
     };
-    device = [{
-      name = "yiancar-designs-nk65b";
-      kb_variant = "";
-    }];
+    device = [
+      {
+        name = "yiancar-designs-nk65b";
+        kb_variant = "";
+      }
+    ];
     gestures = {
       workspace_swipe = true;
       workspace_swipe_invert = false;

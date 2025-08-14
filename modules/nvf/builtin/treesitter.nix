@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   vim.treesitter = {
     textobjects = {
       enable = true;
@@ -38,4 +39,4 @@
     context.enable = true;
     context.setupOpts.separator = null;
   };
-} 
+}

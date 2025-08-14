@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   home.packages = with pkgs; [
     font-awesome
     swaybg
@@ -80,9 +81,9 @@
           all-outputs = true;
           persistent-workspaces =
             let
-              attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (i: []);
+              attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (i: [ ]);
             in
-              attrSet;
+            attrSet;
         };
         "wlr/taskbar" = {
           on-click = "activate";
@@ -93,22 +94,22 @@
           spacing = 8;
         };
         "network#down" = {
-            interval = 3;
-            format = "<span color='#82AAFF'></span> {bandwidthDownBytes}";
-            format-disconnected = "";
-            tooltip-format = "{ifname} via {gwaddr} 󰊗";
-            tooltip-format-wifi = "{essid} ({signalStrength}%) ";
-            tooltip-format-ethernet = "{ifname} ";
-            max-length = 50;
+          interval = 3;
+          format = "<span color='#82AAFF'></span> {bandwidthDownBytes}";
+          format-disconnected = "";
+          tooltip-format = "{ifname} via {gwaddr} 󰊗";
+          tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+          tooltip-format-ethernet = "{ifname} ";
+          max-length = 50;
         };
         "network#up" = {
-            interval = 3;
-            format = "<span color='#82AAFF'></span> {bandwidthUpBytes}";
-            format-disconnected = "";
-            tooltip-format = "{ifname} via {gwaddr} 󰊗";
-            tooltip-format-wifi = "{essid} ({signalStrength}%) ";
-            tooltip-format-ethernet = "{ifname} ";
-            max-length = 50;
+          interval = 3;
+          format = "<span color='#82AAFF'></span> {bandwidthUpBytes}";
+          format-disconnected = "";
+          tooltip-format = "{ifname} via {gwaddr} 󰊗";
+          tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+          tooltip-format-ethernet = "{ifname} ";
+          max-length = 50;
         };
         memory = {
           interval = 3;
