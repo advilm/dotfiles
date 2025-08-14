@@ -27,6 +27,7 @@
 
   vim.extraPackages = with pkgs; [
     fzf
+    fd
     ripgrep
   ];
 }
