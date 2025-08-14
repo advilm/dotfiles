@@ -36,6 +36,7 @@
         resolve_binds_by_sym = true;
         follow_mouse = 2;
         accel_profile = "flat";
+        repeat_delay = 300;
       };
       dwindle = {
         force_split = 2;
