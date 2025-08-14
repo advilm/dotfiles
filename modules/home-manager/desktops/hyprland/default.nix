@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, hmModules, ... }: {
+{ lib, pkgs, ... }: {
   home.packages = with pkgs; [
     hyprpicker
     grim

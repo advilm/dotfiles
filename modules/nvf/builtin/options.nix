@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   vim.viAlias = true;
   vim.vimAlias = true;
   vim.undoFile.enable = true;

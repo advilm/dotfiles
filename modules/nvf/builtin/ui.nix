@@ -1,3 +1,3 @@
-{ pkgs, lib, ... }: {
+_: {
   vim.ui.noice.enable = true;
 } 

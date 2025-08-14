@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   vim.treesitter = {
     textobjects = {
       enable = true;

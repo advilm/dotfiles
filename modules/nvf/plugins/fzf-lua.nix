@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   vim.lazy.plugins."fzf-lua" = {
     package = pkgs.vimPlugins.fzf-lua;
     setupModule = "fzf-lua";

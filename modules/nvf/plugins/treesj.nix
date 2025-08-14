@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   vim.lazy.plugins."treesj" = {
     package = pkgs.vimPlugins.treesj;
     setupModule = "treesj";

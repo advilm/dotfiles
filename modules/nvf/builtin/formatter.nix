@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   vim.formatter.conform-nvim = {
     enable = true;
     setupOpts = {

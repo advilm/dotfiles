@@ -17,7 +17,10 @@
     mkdir.enable = true;
   };
 
-  vim.autopairs.nvim-autopairs.enable = true;
+  vim.autopairs.nvim-autopairs = {
+    enable = true;
+    setupOpts.check_ts = true;
+  };
 
   vim.extraPackages = [ pkgs.yazi ];
 } 

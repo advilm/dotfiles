@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+_: {
   vim.comments = {
     comment-nvim.enable = true;
   };
