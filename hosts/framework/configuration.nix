@@ -20,8 +20,10 @@
   boot.kernelParams = [
     "i915.force_probe=!9a49"
     "xe.force_probe=9a49"
-    "mem_sleep_default=deep"
   ];
+
+  systemd.sleep.extraConfig = "HibernateDelaySec=1h";
+  services.logind.lidSwitch = "suspend-then-hibernate";
 
   hardware.framework.enableKmod = true;
   # hardware.framework.laptop13.audioEnhancement.enable = true;

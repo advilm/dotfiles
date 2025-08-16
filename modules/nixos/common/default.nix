@@ -129,6 +129,12 @@
   services.getty.loginOptions = "-p -- ${user}";
   services.getty.extraArgs = [ "--skip-login" ];
 
+  services.upower = {
+    enable = true;
+    # HybridSleep at 3% battery
+    percentageAction = 3;
+  };
+
   # for ddcutil to be able to control monitor brightness
   hardware.i2c.enable = true;
 
