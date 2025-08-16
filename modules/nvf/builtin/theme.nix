@@ -1,24 +1,16 @@
-_: {
-  vim.theme = {
-    enable = true;
-    name = "mini-base16";
-    base16-colors = {
-      base00 = "#0b0e14";
-      base01 = "#131721";
-      base02 = "#202229";
-      base03 = "#3e4b59";
-      base04 = "#bfbdb6";
-      base05 = "#e6e1cf";
-      base06 = "#ece8db";
-      base07 = "#f2f0e7";
-      base08 = "#f07178";
-      base09 = "#ff8f40";
-      base0A = "#ffb454";
-      base0B = "#aad94c";
-      base0C = "#95e6cb";
-      base0D = "#59c2ff";
-      base0E = "#d2a6ff";
-      base0F = "#e6b450";
+{ pkgs, lib, ...}: {
+  vim.lazy.plugins."tokyonight.nvim" = {
+    package = pkgs.vimPlugins.tokyonight-nvim;
+    setupModule = "tokyonight";
+    lazy = false;
+    priority = 1000;
+    setupOpts = {
+      on_colors = lib.generators.mkLuaInline ''
+        function(colors)
+          colors.bg = "#090e15"
+        end
+      '';
     };
+    after = "vim.cmd.colorscheme('tokyonight-night')";
   };
 }
