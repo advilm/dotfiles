@@ -20,6 +20,7 @@
   boot.kernelParams = [
     "i915.force_probe=!9a49"
     "xe.force_probe=9a49"
+    "mem_sleep_default=deep"
   ];
 
   hardware.framework.enableKmod = true;
@@ -44,5 +45,5 @@
   };
 
   # limit to laptop keyboard
-  services.keyd.keyboards.default.ids = [ "0001:0001:70533846" ];
+  services.keyd.keyboards.default.ids = [ "0001:0001" ];
 }

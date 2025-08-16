@@ -4,7 +4,6 @@
     yazi-nvim = {
       enable = true;
       setupOpts = {
-        open_for_directories = true;
         integrations.grep_in_directory = "fzf-lua";
         grep_in_selected_files = "fzf-lua";
       };
@@ -16,6 +15,7 @@
     };
 
     mkdir.enable = true;
+    vim-wakatime.enable = true;
   };
 
   vim.autopairs.nvim-autopairs = {
