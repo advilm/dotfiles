@@ -1,4 +1,5 @@
-{ pkgs, lib, ...}: {
+{ pkgs, lib, ... }:
+{
   vim.lazy.plugins."tokyonight.nvim" = {
     package = pkgs.vimPlugins.tokyonight-nvim;
     setupModule = "tokyonight";
