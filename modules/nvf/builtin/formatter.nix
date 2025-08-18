@@ -20,7 +20,7 @@
   vim.keymaps = [
     {
       mode = [ "n" ];
-      key = "<leader>e";
+      key = "<leader>f";
       lua = true;
       action = "function() require('conform').format() end";
     }

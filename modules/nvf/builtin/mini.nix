@@ -2,7 +2,19 @@ _: {
   vim.mini = {
     files = {
       enable = true;
-      setupOpts.options.use_as_default_explorer = false;
+      setupOpts = {
+        options = {
+          use_as_default_explorer = false;
+        };
+      };
     };
   };
+  vim.keymaps = [
+    {
+      mode = [ "n" ];
+      key = "<leader>e";
+      lua = true;
+      action = "function() MiniFiles.open() end";
+    }
+  ];
 }
