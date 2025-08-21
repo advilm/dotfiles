@@ -9,6 +9,7 @@
     ncdu
     pavucontrol
     ripgrep
+    fd
   ];
 
   home.sessionVariables = {
