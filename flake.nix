@@ -77,15 +77,24 @@
             }
           ];
         };
-      nvfConfig = inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [ ./modules/nvf ];
-      };
-      pkgs-aarch64 = import nixpkgs { system = "aarch64-darwin"; };
-      nvfConfig-aarch64 = inputs.nvf.lib.neovimConfiguration {
-        pkgs = pkgs-aarch64;
-        modules = [ ./modules/nvf ];
-      };
+
+      mkSystemPackages =
+        systems: f:
+        builtins.listToAttrs (
+          map (system: {
+            name = system;
+            value = f system;
+          }) systems
+        );
+
+      mkNvfConfiguration =
+        system:
+        inputs.nvf.lib.neovimConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+          modules = [
+            ./modules/nvf
+          ];
+        };
     in
     {
       nixosConfigurations = {
@@ -93,8 +102,11 @@
         framework = mkConfiguration "advil" "framework";
       };
 
-      packages.x86_64-linux.neovim = nvfConfig.neovim;
-      packages.aarch64-darwin.neovim = nvfConfig-aarch64.neovim;
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      formatter = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (
+        system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style
+      );
+      packages = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (system: {
+        inherit (mkNvfConfiguration system) neovim;
+      });
     };
 }
