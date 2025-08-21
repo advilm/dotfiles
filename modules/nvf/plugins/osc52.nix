@@ -1,4 +1,16 @@
 { pkgs, lib, ... }:
+let
+  copy = lib.generators.mkLuaInline "
+    function(lines, _)
+      require('osc52').copy(table.concat(lines, '\\n'))
+    end
+  ";
+  paste = lib.generators.mkLuaInline "
+    function()
+      return {vim.fn.split(vim.fn.getreg(''), '\\n'), vim.fn.getregtype('')}
+    end
+  ";
+in
 {
   vim.lazy.plugins."nvim-osc52" = {
     package = pkgs.vimPlugins.nvim-osc52;
@@ -28,26 +40,18 @@
         key = "<leader>P";
         action = "\"+P";
       }
-      # {
-      #   mode = "v";
-      #   key = "<leader>y";
-      #   lua = true;
-      #   action = "function() require('osc52').copy_visual() end";
-      # }
     ];
   };
 
-  vim.autocmds = [
-    {
-      enable = true;
-      event = [ "TextYankPost" ];
-      callback = lib.generators.mkLuaInline ''
-        function()
-          if vim.v.event.operator == 'y' and vim.v.event.regname == '+' then
-            require('osc52').copy_register('+')
-          end
-        end
-      '';
-    }
-  ];
+  vim.globals.clipboard = {
+    name = "osc52";
+    copy = {
+      "+" = copy;
+      "*" = copy;
+    };
+    paste = {
+      "+" = paste;
+      "*" = paste;
+    };
+  };
 }
