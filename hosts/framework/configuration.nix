@@ -24,6 +24,9 @@
 
   systemd.sleep.extraConfig = "HibernateDelaySec=1h";
   services.logind.lidSwitch = "suspend-then-hibernate";
+  powerManagement.resumeCommands = ''
+    systemctl restart tlp.service
+  '';
 
   hardware.framework.enableKmod = true;
   # hardware.framework.laptop13.audioEnhancement.enable = true;
