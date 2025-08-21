@@ -3,10 +3,11 @@ _: {
     enable = true;
     enableFishIntegration = true;
     settings = {
-      # Window padding
+      theme = "dark";
       window-padding-x = 6;
       window-padding-y = 6;
-
+    };
+    themes.dark = {
       # Colors
       background = "#090e15";
       foreground = "#c0caf5";
