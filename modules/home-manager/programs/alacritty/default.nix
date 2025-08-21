@@ -1,4 +1,5 @@
-_: {
+_:
+{
   programs.alacritty = {
     enable = true;
     settings = {
