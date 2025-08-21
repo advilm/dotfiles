@@ -45,9 +45,12 @@
   networking = {
     hostName = host;
 
-    networkmanager.enable = true;
-    networkmanager.dns = "none";
-    networkmanager.wifi.backend = "iwd";
+    networkmanager = {
+      enable = true;
+      dns = "none";
+      wifi.backend = "iwd";
+      plugins = [ pkgs.networkmanager-openvpn ];
+    };
 
     nameservers = [ "1.1.1.1" ];
   };
