@@ -3,15 +3,9 @@
   programs.anyrun = {
     enable = true;
     config = {
-      x = {
-        fraction = 0.5;
-      };
-      y = {
-        fraction = 0.4;
-      };
-      width = {
-        fraction = 0.25;
-      };
+      x.fraction = 0.5;
+      y.fraction = 0.4;
+      width.fraction = 0.25;
       hideIcons = false;
       ignoreExclusiveZones = true;
       layer = "overlay";
@@ -22,6 +16,7 @@
 
       plugins = [
         inputs.anyrun.packages.${pkgs.system}.applications
+        inputs.anyrun.packages.${pkgs.system}.nix-run
       ];
     };
 
@@ -31,6 +26,15 @@
       #window {
         background: transparent;
       }
+    '';
+
+    extraConfigFiles."nix-run.ron".text = ''
+      Config(
+        prefix: ":nr"
+        allow_unfree: true,
+        channel: "nixpkgs-unstable",
+        max_entries: 5,
+      )
     '';
   };
 }
