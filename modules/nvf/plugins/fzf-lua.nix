@@ -2,7 +2,9 @@
 {
   vim.lazy.plugins."fzf-lua" = {
     package = pkgs.vimPlugins.fzf-lua;
+    lazy = false;
     setupModule = "fzf-lua";
+    after = "require('fzf-lua').register_ui_select()";
     keys = [
       {
         mode = [ "n" ];
