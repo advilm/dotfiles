@@ -2,6 +2,7 @@ _: {
   imports = [
     ./auto-save.nix
     ./auto-session.nix
+    ./fastaction.nix
     ./flatten.nix
     ./fzf-lua.nix
     ./guess-indent.nix
