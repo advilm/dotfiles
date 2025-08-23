@@ -30,8 +30,6 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
       userConfigs = {
         advil = {
           name = "Adil Mohiuddin";
@@ -40,7 +38,7 @@
         };
       };
       mkConfiguration =
-        user: host:
+        user: host: system:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
@@ -98,8 +96,8 @@
     in
     {
       nixosConfigurations = {
-        pc = mkConfiguration "advil" "pc";
-        framework = mkConfiguration "advil" "framework";
+        pc = mkConfiguration "advil" "pc" "x86_64-linux";
+        framework = mkConfiguration "advil" "framework" "x86_64-linux";
       };
 
       formatter = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (
