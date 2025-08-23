@@ -5,10 +5,12 @@ _: {
     mimeApps = {
       enable = true;
       defaultApplications = {
+        "application/pdf" = [ "firefox.desktop" ];
         "x-scheme-handler/http" = [ "firefox.desktop" ];
         "x-scheme-handler/https" = [ "firefox.desktop" ];
         "text/html" = [ "firefox.desktop" ];
         "text/plain" = [ "nvim.desktop" ];
+        "image/png" = [ "firefox.desktop" ];
       };
     };
 
