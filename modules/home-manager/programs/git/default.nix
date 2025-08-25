@@ -1,4 +1,5 @@
-{ userConfig, ... }: {
+{ userConfig, ... }:
+{
   programs.git = {
     enable = true;
     userEmail = userConfig.email;

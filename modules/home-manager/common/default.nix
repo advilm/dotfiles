@@ -1,4 +1,5 @@
-{ lib, inputs, pkgs, user, ...}: {
+{ pkgs, user, ... }:
+{
   home.username = user;
   home.homeDirectory = "/home/${user}";
 
@@ -6,8 +7,9 @@
     jellyfin-media-player
     mpv
     ncdu
-    neovim
     pavucontrol
+    ripgrep
+    fd
   ];
 
   home.sessionVariables = {

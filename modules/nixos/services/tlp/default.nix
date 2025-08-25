@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   services.tlp = {
     enable = true;
     settings = {
@@ -13,7 +13,7 @@
       CPU_MIN_PERF_ON_BAT = 0;
       CPU_MAX_PERF_ON_BAT = 50;
 
-      STOP_CHARGE_THRESH_BAT1 = 80; 
+      STOP_CHARGE_THRESH_BAT1 = 80;
     };
   };
 }

@@ -1,10 +1,5 @@
+{ nixosModules, pkgs, ... }:
 {
-  inputs,
-  host,
-  nixosModules,
-  pkgs,
-  ...
-}: {
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.common-gpu-amd

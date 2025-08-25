@@ -2,7 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, user, host, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  user,
+  host,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -11,11 +18,14 @@
 
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       auto-optimise-store = true;
     };
     # use nixpkgs from flake for nix commands
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     registry.nixpkgs = {
       from = {
         id = "nixpkgs";
@@ -35,9 +45,12 @@
   networking = {
     hostName = host;
 
-    networkmanager.enable = true;
-    networkmanager.dns = "none";
-    networkmanager.wifi.backend = "iwd";
+    networkmanager = {
+      enable = true;
+      dns = "none";
+      wifi.backend = "iwd";
+      plugins = [ pkgs.networkmanager-openvpn ];
+    };
 
     nameservers = [ "1.1.1.1" ];
   };
@@ -75,7 +88,14 @@
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager" "i2c" ];
+    extraGroups = [
+      "wheel"
+      "audio"
+      "video"
+      "networkmanager"
+      "docker"
+      "i2c"
+    ];
     shell = pkgs.fish;
   };
 
@@ -83,17 +103,20 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment = {
     systemPackages = with pkgs; [
-        ddcutil
-        git
-        vim
-        wget
-        seahorse
+      ddcutil
+      git
+      vim
+      wget
+      seahorse
+      libsecret
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
       ADW_DISABLE_PORTAL = "1"; # TODO: Try disabling and see if it still works
     };
   };
+
+  documentation.man.generateCaches = false;
 
   programs.fish.enable = true;
   programs.gnupg.agent.enable = true;
@@ -108,6 +131,12 @@
   # skip typing username on login
   services.getty.loginOptions = "-p -- ${user}";
   services.getty.extraArgs = [ "--skip-login" ];
+
+  services.upower = {
+    enable = true;
+    # HybridSleep at 3% battery
+    percentageAction = 3;
+  };
 
   # for ddcutil to be able to control monitor brightness
   hardware.i2c.enable = true;

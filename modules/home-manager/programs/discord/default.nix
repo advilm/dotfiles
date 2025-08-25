@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   programs.vesktop = {
     enable = true;
     settings = {
@@ -13,7 +13,7 @@
       appBadge = false;
       disableMinSize = true;
       customTitleBar = false;
-      
+
       enableSplashScreen = false;
     };
   };

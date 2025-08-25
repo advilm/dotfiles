@@ -1,8 +1,8 @@
-{ ... }: {
+_: {
   hardware.bluetooth.enable = true;
 
   programs.hyprland.enable = true;
-  programs.hyprland.withUWSM  = true;
+  programs.hyprland.withUWSM = true;
 
   programs.fish.loginShellInit = ''
     if uwsm check may-start
