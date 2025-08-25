@@ -7,6 +7,11 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
+
+    "${nixosModules}/common"
+
     "${nixosModules}/common"
     "${nixosModules}/desktops/hyprland"
     "${nixosModules}/programs/docker"

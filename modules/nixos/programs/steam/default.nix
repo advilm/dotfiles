@@ -1,4 +1,14 @@
 { ... }: {
-  programs.steam.enable = true;
-  programs.steam.localNetworkGameTransfers.openFirewall = true;
+  programs = {
+    steam = {
+      enable = true;
+      localNetworkGameTransfers.openFirewall = true;
+      gamescopeSession.enable = true;
+    };
+
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+  };
 }
