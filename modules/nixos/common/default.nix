@@ -80,6 +80,16 @@
           "bluetooth.autoswitch-to-headset-profile" = false;
         };
       };
+      "52-block-source-volume-changes" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [ { "application.process.binary" = "electron"; } ];
+            actions = {
+              quirks = [ "block-source-volume" ];
+            };
+          }
+        ];
+      };
     };
   };
 
