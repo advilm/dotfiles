@@ -119,6 +119,18 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    extraConfig.pipewire-pulse = {
+      "50-block-source-volume-changes" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [ { "application.name" = "Chromium Input"; } ];
+            actions = {
+              quirks = [ "block-source-volume" ];
+            };
+          }
+        ];
+      };
+    };
     wireplumber.extraConfig = {
       "50-hsp-autoswitch-disable" = {
         "wireplumber.settings" = {
