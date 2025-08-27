@@ -51,12 +51,12 @@
             nixosModules = "${self}/modules/nixos";
           };
           modules = [
-            ./hosts/${host}/configuration.nix
+            ./machines/${host}/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${user} = ./homes/${host}.nix;
+              home-manager.users.${user} = ./machines/${host}/home.nix;
 
               home-manager.extraSpecialArgs = {
                 inherit inputs user;
