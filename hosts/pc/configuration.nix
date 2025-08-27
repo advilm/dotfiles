@@ -1,4 +1,10 @@
-{ inputs, nixosModules, pkgs, ... }:
+{
+  inputs,
+  nixosModules,
+  pkgs,
+  user,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -17,6 +23,7 @@
     "${nixosModules}/services/openssh"
   ];
 
+  # plex
   networking.firewall.allowedTCPPorts = [ 32400 ];
 
   services.avahi = {
@@ -32,4 +39,13 @@
       cups-browsed
     ];
   };
+
+  programs.virt-manager.enable = true;
+  users.users.${user}.extraGroups = [
+    "libvirtd"
+    "kvm"
+  ];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
 }
