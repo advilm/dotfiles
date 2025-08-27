@@ -14,7 +14,7 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  hardware.graphics.enable = true;
+  hardware.enableRedistributableFirmware = true;
 
   nix = {
     settings = {
