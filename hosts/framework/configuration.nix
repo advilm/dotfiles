@@ -11,6 +11,7 @@
     "${nixosModules}/programs/nh"
     "${nixosModules}/programs/obs-studio"
     "${nixosModules}/programs/steam"
+    "${nixosModules}/programs/virt-manager"
     "${nixosModules}/services/keyd"
     "${nixosModules}/services/openssh"
     "${nixosModules}/services/tlp"
