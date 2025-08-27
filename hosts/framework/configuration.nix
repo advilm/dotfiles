@@ -17,10 +17,10 @@
     "${nixosModules}/services/zerotier"
   ];
 
-  boot.kernelParams = [
-    "i915.force_probe=!9a49"
-    "xe.force_probe=9a49"
-  ];
+  # boot.kernelParams = [
+  #   "i915.force_probe=!9a49"
+  #   "xe.force_probe=9a49"
+  # ];
 
   systemd.sleep.extraConfig = "HibernateDelaySec=1h";
   services.logind.lidSwitch = "suspend-then-hibernate";
@@ -51,4 +51,6 @@
 
   # limit to laptop keyboard
   services.keyd.keyboards.default.ids = [ "0001:0001" ];
+  
+  services.thermald.enable = true;
 }
