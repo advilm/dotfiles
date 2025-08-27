@@ -35,12 +35,15 @@
     };
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
 
-  boot.tmp.useTmpfs = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    tmp.useTmpfs = true;
+  };
 
   networking = {
     hostName = host;
@@ -70,28 +73,6 @@
     nerd-fonts.meslo-lg
     twitter-color-emoji
   ];
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    wireplumber.extraConfig = {
-      "51-hsp-autoswitch-disable" = {
-        "wireplumber.settings" = {
-          "bluetooth.autoswitch-to-headset-profile" = false;
-        };
-      };
-      "52-block-source-volume-changes" = {
-        "monitor.alsa.rules" = [
-          {
-            matches = [ { "application.process.binary" = "electron"; } ];
-            actions = {
-              quirks = [ "block-source-volume" ];
-            };
-          }
-        ];
-      };
-    };
-  };
 
   # for redshift
   location.provider = "geoclue2";
@@ -135,6 +116,18 @@
     enableFishIntegration = true;
   };
 
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    wireplumber.extraConfig = {
+      "50-hsp-autoswitch-disable" = {
+        "wireplumber.settings" = {
+          "bluetooth.autoswitch-to-headset-profile" = false;
+        };
+      };
+    };
+  };
+
   # secrets manager
   services.gnome.gnome-keyring.enable = true;
 
@@ -146,6 +139,14 @@
     enable = true;
     # HybridSleep at 3% battery
     percentageAction = 3;
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    settings.General = {
+      JustWorksRepairing = "always";
+      Experimental = true;
+    };
   };
 
   # for ddcutil to be able to control monitor brightness

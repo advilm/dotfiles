@@ -1,6 +1,4 @@
 _: {
-  hardware.bluetooth.enable = true;
-
   programs.hyprland.enable = true;
   programs.hyprland.withUWSM = true;
 
@@ -9,6 +7,4 @@ _: {
       exec uwsm start default
     end
   '';
-
-  # TODO: fish init shell here?
 }
