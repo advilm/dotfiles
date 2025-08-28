@@ -24,7 +24,9 @@
         mode = [ "n" ];
         key = "<leader>ca";
         lua = true;
-        action = "function() require('fastaction').code_action() end";
+        action = "function()
+          require('fastaction').code_action()
+        end";
       }
     ];
   };
