@@ -50,6 +50,11 @@
     ];
   };
 
+  programs.ghidra = {
+    enable = true;
+    gdb = true;
+  };
+
   # limit to laptop keyboard
   services.keyd.keyboards.default.ids = [ "0001:0001" ];
   
