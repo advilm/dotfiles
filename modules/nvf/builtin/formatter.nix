@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   vim.formatter.conform-nvim = {
     enable = true;
     setupOpts = {
       formatters_by_ft = {
-        nix = [ "nixfmt" ];
+        nix = ["nixfmt"];
         "*" = [
           "trim_whitespace"
           "trim_newlines"
@@ -19,7 +18,7 @@
 
   vim.keymaps = [
     {
-      mode = [ "n" ];
+      mode = ["n"];
       key = "<leader>f";
       lua = true;
       action = "function() require('conform').format() end";
@@ -28,5 +27,8 @@
 
   vim.options.formatexpr = "v:lua.require('conform').formatexpr()";
 
-  vim.extraPackages = [ pkgs.nixfmt-rfc-style ];
+  vim.extraPackages = [
+    pkgs.nixfmt-rfc-style
+    pkgs.kdlfmt
+  ];
 }

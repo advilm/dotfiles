@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   vim.treesitter = {
     textobjects = {
       enable = true;
@@ -35,6 +34,7 @@
     autotagHtml = true;
     grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       typescript
+      kdl
     ];
     context.enable = true;
     context.setupOpts = {

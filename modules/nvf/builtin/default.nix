@@ -3,7 +3,6 @@ _: {
     ./comments.nix
     ./copilot.nix
     ./formatter.nix
-    ./languages.nix
     ./lsp.nix
     ./mini.nix
     ./options.nix

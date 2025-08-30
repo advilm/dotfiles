@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     font-awesome
     swaybg
@@ -79,10 +82,9 @@
           on-scroll-down = "hyprctl dispatch workspace r-1";
           on-click = "activate";
           all-outputs = true;
-          persistent-workspaces =
-            let
-              attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (i: [ ]);
-            in
+          persistent-workspaces = let
+            attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (i: []);
+          in
             attrSet;
         };
         "wlr/taskbar" = {
@@ -121,13 +123,13 @@
         };
         "clock#date" = {
           interval = 1;
-          timezones = [ "America/Los_Angeles" ];
+          timezones = ["America/Los_Angeles"];
           format = "<span color='#82AAFF'></span> {:%Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         "clock#time" = {
           interval = 1;
-          timezones = [ "America/Los_Angeles" ];
+          timezones = ["America/Los_Angeles"];
           format = "<span color='#82AAFF'>󰥔</span> {:%H:%M}";
           tooltip-format = "";
         };

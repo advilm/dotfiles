@@ -1,5 +1,9 @@
 { lib, pkgs, ... }:
 {
+  imports = [
+    ../shared/waybar
+  ];
+
   home.packages = with pkgs; [
     hyprpicker
     grim

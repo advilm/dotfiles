@@ -5,7 +5,7 @@
     inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
 
     "${nixosModules}/common"
-    "${nixosModules}/desktops/hyprland"
+    "${nixosModules}/desktops/niri"
     "${nixosModules}/programs/docker"
     "${nixosModules}/programs/nautilus"
     "${nixosModules}/programs/nh"
