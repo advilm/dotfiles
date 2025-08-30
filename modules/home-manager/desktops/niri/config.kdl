@@ -88,10 +88,10 @@ binds {
         consume-or-expel-window-right
     }
     Mod+Return repeat=false {
-        spawn "alacritty"
+        spawn "uwsm" "app" "--" "alacritty"
     }
     Mod+Space repeat=false {
-        spawn "anyrun"
+        spawn "uwsm" "app" "--" "anyrun"
     }
     Mod+Left {
         focus-column-left
