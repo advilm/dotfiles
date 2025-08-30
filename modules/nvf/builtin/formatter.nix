@@ -3,11 +3,9 @@
     enable = true;
     setupOpts = {
       formatters_by_ft = {
-        nix = ["nixfmt"];
-        "*" = [
-          "trim_whitespace"
-          "trim_newlines"
-        ];
+        nix = ["alejandra"];
+        kdl = ["kdlfmt"];
+        "*" = ["trim_whitespace" "trim_newlines"];
       };
       default_format_ops = {
         lsp_format = "fallback";
@@ -28,7 +26,7 @@
   vim.options.formatexpr = "v:lua.require('conform').formatexpr()";
 
   vim.extraPackages = [
-    pkgs.nixfmt-rfc-style
+    pkgs.alejandra
     pkgs.kdlfmt
   ];
 }
