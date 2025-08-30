@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   copy = lib.generators.mkLuaInline "
     function(lines, _)
       require('osc52').copy(table.concat(lines, '\\n'))
@@ -10,8 +13,7 @@ let
       return {vim.fn.split(vim.fn.getreg(''), '\\n'), vim.fn.getregtype('')}
     end
   ";
-in
-{
+in {
   vim.lazy.plugins."nvim-osc52" = {
     package = pkgs.vimPlugins.nvim-osc52;
     lazy = false;

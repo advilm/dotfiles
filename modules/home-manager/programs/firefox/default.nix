@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{user, ...}: {
   programs.firefox = {
     enable = true;
     # https://github.com/llakala/nixos/blob/0d43dd0b8950d5a2f21bbc27bd3d068ea2c70615/apps/gui/firefox/policies.nix

@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   vim.lazy.plugins."snacks.nvim" = {
     package = pkgs.vimPlugins.snacks-nvim;
     setupModule = "snacks";
@@ -22,7 +25,7 @@
             dirs = lib.generators.mkLuaInline ''
               function()
                 root_dir = require("auto-session.config").root_dir
-                sessions = require("auto-session.lib").get_session_list(root_dir) 
+                sessions = require("auto-session.lib").get_session_list(root_dir)
 
                 local session_names = vim.tbl_map(function(session)
                   return session.session_name
@@ -63,12 +66,12 @@
     };
     keys = [
       {
-        mode = [ "n" ];
+        mode = ["n"];
         key = "<leader>gs";
         lua = true;
         action = "function() Snacks.lazygit() end";
       }
     ];
   };
-  vim.extraPackages = [ pkgs.lazygit ];
+  vim.extraPackages = [pkgs.lazygit];
 }

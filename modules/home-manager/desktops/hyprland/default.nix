@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../shared/waybar
   ];
@@ -57,63 +60,63 @@
       xwayland = {
         force_zero_scaling = true;
       };
-      bind = [
-        "$mod, return, exec, uwsm app -- alacritty"
-        "$mod, space, exec, uwsm app -- anyrun"
-        "$mod, w, killactive,"
-        "$mod, o, setfloating,"
-        "$mod, y, settiled,"
-        "$mod, m, fullscreen, 1"
-        "$mod, f, fullscreen, 2"
-        "$mod shift, e, exec, uwsm stop"
-        ", Print, exec, uwsm app -- grim -g \"$(slurp)\" - | wl-copy"
-        "ctrl, Print, exec, uwsm app -- grim - | wl-copy"
-        "super, Print, exec, uwsm app -- hyprpicker -a"
-      ]
-      ++ (builtins.concatLists (
-        builtins.genList (
-          i:
-          let
-            ws = i + 1;
-          in
-          [
-            "$mod, code:1${toString i}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-          ]
-        ) 10
-      ))
-      ++ (
-        let
-          directions = [
-            {
-              key = "h";
-              direction = "l";
-            }
-            {
-              key = "t";
-              direction = "d";
-            }
-            {
-              key = "n";
-              direction = "u";
-            }
-            {
-              key = "s";
-              direction = "r";
-            }
-          ];
-        in
-        lib.flatten [
-          (map (dir: "$mod, ${dir.key}, movefocus, ${dir.direction}") directions)
-          (map (dir: "$mod shift, ${dir.key}, movewindow, ${dir.direction}") directions)
+      bind =
+        [
+          "$mod, return, exec, uwsm app -- alacritty"
+          "$mod, space, exec, uwsm app -- anyrun"
+          "$mod, w, killactive,"
+          "$mod, o, setfloating,"
+          "$mod, y, settiled,"
+          "$mod, m, fullscreen, 1"
+          "$mod, f, fullscreen, 2"
+          "$mod shift, e, exec, uwsm stop"
+          ", Print, exec, uwsm app -- grim -g \"$(slurp)\" - | wl-copy"
+          "ctrl, Print, exec, uwsm app -- grim - | wl-copy"
+          "super, Print, exec, uwsm app -- hyprpicker -a"
         ]
-      )
-      ++ [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPause, exec, playerctl play-pause"
-      ];
+        ++ (builtins.concatLists (
+          builtins.genList (
+            i: let
+              ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          )
+          10
+        ))
+        ++ (
+          let
+            directions = [
+              {
+                key = "h";
+                direction = "l";
+              }
+              {
+                key = "t";
+                direction = "d";
+              }
+              {
+                key = "n";
+                direction = "u";
+              }
+              {
+                key = "s";
+                direction = "r";
+              }
+            ];
+          in
+            lib.flatten [
+              (map (dir: "$mod, ${dir.key}, movefocus, ${dir.direction}") directions)
+              (map (dir: "$mod shift, ${dir.key}, movewindow, ${dir.direction}") directions)
+            ]
+        )
+        ++ [
+          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioPrev, exec, playerctl previous"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioPause, exec, playerctl play-pause"
+        ];
       binde = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

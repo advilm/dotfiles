@@ -1,5 +1,8 @@
-{ inputs, nixosModules, ... }:
 {
+  inputs,
+  nixosModules,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
@@ -43,7 +46,7 @@
       "https://nix-community.cachix.org"
       "https://hyprland.cachix.org"
     ];
-    trusted-substituters = [ "https://hyprland.cachix.org" ];
+    trusted-substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
@@ -56,7 +59,7 @@
   };
 
   # limit to laptop keyboard
-  services.keyd.keyboards.default.ids = [ "0001:0001" ];
-  
+  services.keyd.keyboards.default.ids = ["0001:0001"];
+
   services.thermald.enable = true;
 }

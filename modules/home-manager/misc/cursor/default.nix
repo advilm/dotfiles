@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.pointerCursor = {
     gtk.enable = true;
     hyprcursor.enable = true;

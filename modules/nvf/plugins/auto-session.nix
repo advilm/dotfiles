@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   vim.lazy.plugins."auto-session" = {
     package = pkgs.vimPlugins.auto-session;
     setupModule = "auto-session";
     lazy = false;
     setupOpts = {
-      suppressed_dirs = [ "~" ];
+      suppressed_dirs = ["~"];
     };
     before = ''
       local arg = vim.fn.expand(vim.fn.argv(0))

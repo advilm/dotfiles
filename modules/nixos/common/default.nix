@@ -1,7 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   lib,
   pkgs,
@@ -9,9 +8,7 @@
   user,
   host,
   ...
-}:
-
-{
+}: {
   nixpkgs.config.allowUnfree = true;
 
   hardware.enableRedistributableFirmware = true;
@@ -25,7 +22,7 @@
       auto-optimise-store = true;
     };
     # use nixpkgs from flake for nix commands
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     registry.nixpkgs = {
       from = {
         id = "nixpkgs";
@@ -36,7 +33,6 @@
   };
 
   boot = {
-
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
@@ -52,10 +48,10 @@
       enable = true;
       dns = "none";
       wifi.backend = "iwd";
-      plugins = [ pkgs.networkmanager-openvpn ];
+      plugins = [pkgs.networkmanager-openvpn];
     };
 
-    nameservers = [ "1.1.1.1" ];
+    nameservers = ["1.1.1.1"];
   };
 
   time.timeZone = "America/Los_Angeles";
@@ -123,9 +119,9 @@
       "50-block-source-volume-changes" = {
         "monitor.alsa.rules" = [
           {
-            matches = [ { "application.name" = "Chromium Input"; } ];
+            matches = [{"application.name" = "Chromium Input";}];
             actions = {
-              quirks = [ "block-source-volume" ];
+              quirks = ["block-source-volume"];
             };
           }
         ];
@@ -145,7 +141,7 @@
 
   # skip typing username on login
   services.getty.loginOptions = "-p -- ${user}";
-  services.getty.extraArgs = [ "--skip-login" ];
+  services.getty.extraArgs = ["--skip-login"];
 
   services.upower = {
     enable = true;
@@ -168,5 +164,4 @@
   # even if you've upgraded your system to a new NixOS release.
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion.
   system.stateVersion = "25.05";
-
 }

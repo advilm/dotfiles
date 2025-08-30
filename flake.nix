@@ -22,89 +22,95 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
-    let
-      userConfigs = {
-        advil = {
-          name = "Adil Mohiuddin";
-          email = "adil.mohiuddin07@gmail.com";
-          signing_key = "26240A39D41B8ECB";
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    userConfigs = {
+      advil = {
+        name = "Adil Mohiuddin";
+        email = "adil.mohiuddin07@gmail.com";
+        signing_key = "26240A39D41B8ECB";
       };
-      mkConfiguration =
-        user: host: system:
-        nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit
-              inputs
-              nixpkgs
-              host
-              user
-              ;
-            userConfig = userConfigs.${user};
-            nixosModules = "${self}/modules/nixos";
-          };
-          modules = [
-            ./machines/${host}/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.${user} = ./machines/${host}/home.nix;
-
-              home-manager.extraSpecialArgs = {
-                inherit inputs user;
-                userConfig = userConfigs.${user};
-                hmModules = "${self}/modules/home-manager";
-              };
-            }
-            inputs.nur.modules.nixos.default
-            inputs.nix-index-database.nixosModules.nix-index
-            {
-              # flake packages
-              environment.systemPackages = [
-                inputs.anyrun.packages.${system}.anyrun
-                self.packages.${system}.neovim
-              ];
-            }
-          ];
-        };
-
-      mkSystemPackages =
-        systems: f:
-        builtins.listToAttrs (
-          map (system: {
-            name = system;
-            value = f system;
-          }) systems
-        );
-
-      mkNvfConfiguration =
-        system:
-        inputs.nvf.lib.neovimConfiguration {
-          pkgs = import nixpkgs { inherit system; };
-          modules = [
-            ./modules/nvf
-          ];
-        };
-    in
-    {
-      nixosConfigurations = {
-        pc = mkConfiguration "advil" "pc" "x86_64-linux";
-        framework = mkConfiguration "advil" "framework" "x86_64-linux";
-      };
-
-      formatter = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (
-        system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style
-      );
-      packages = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (system: {
-        inherit (mkNvfConfiguration system) neovim;
-      });
     };
+    mkConfiguration = user: host: system:
+      nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs nixpkgs host user;
+          userConfig = userConfigs.${user};
+          nixosModules = "${self}/modules/nixos";
+        };
+        modules = [
+          ./machines/${host}/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${user} = ./machines/${host}/home.nix;
+
+            home-manager.extraSpecialArgs = {
+              inherit inputs user;
+              userConfig = userConfigs.${user};
+              hmModules = "${self}/modules/home-manager";
+            };
+          }
+          inputs.nur.modules.nixos.default
+          inputs.nix-index-database.nixosModules.nix-index
+          {
+            # flake packages
+            environment.systemPackages = [
+              inputs.anyrun.packages.${system}.anyrun
+              self.packages.${system}.neovim
+            ];
+          }
+        ];
+      };
+
+    mkSystemPackages = systems: f:
+      builtins.listToAttrs (
+        map (system: {
+          name = system;
+          value = f system;
+        })
+        systems
+      );
+
+    mkNvfConfiguration = system:
+      inputs.nvf.lib.neovimConfiguration {
+        pkgs = import nixpkgs {inherit system;};
+        modules = [
+          ./modules/nvf
+        ];
+      };
+  in {
+    nixosConfigurations = {
+      pc = mkConfiguration "advil" "pc" "x86_64-linux";
+      framework = mkConfiguration "advil" "framework" "x86_64-linux";
+    };
+
+    formatter = mkSystemPackages ["x86_64-linux" "aarch64-linux" "aarch64-darwin"] (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+      in
+        pkgs.writeShellApplication {
+          name = "nix3-fmt-wrapper";
+
+          runtimeInputs = [
+            pkgs.alejandra
+            pkgs.fd
+          ];
+
+          text = ''
+            # Find Nix files in the tree and format them with Alejandra
+            fd "$@" -t f -e nix -x alejandra -q '{}'
+          '';
+        }
+    );
+
+    packages = mkSystemPackages ["x86_64-linux" "aarch64-linux" "aarch64-darwin"] (system: {
+      inherit (mkNvfConfiguration system) neovim;
+    });
+  };
 }

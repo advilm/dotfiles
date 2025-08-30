@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   vim.utility = {
     yazi-nvim = {
       enable = true;
@@ -24,5 +23,5 @@
     setupOpts.check_ts = true;
   };
 
-  vim.extraPackages = [ pkgs.yazi ];
+  vim.extraPackages = [pkgs.yazi];
 }

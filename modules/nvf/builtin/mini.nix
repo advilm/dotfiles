@@ -11,7 +11,7 @@ _: {
   };
   vim.keymaps = [
     {
-      mode = [ "n" ];
+      mode = ["n"];
       key = "<leader>e";
       lua = true;
       action = "function() MiniFiles.open() end";

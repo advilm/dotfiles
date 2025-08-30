@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   vim.lazy.plugins."flatten.nvim" = {
     package = pkgs.vimPlugins.flatten-nvim;
     setupModule = "flatten";

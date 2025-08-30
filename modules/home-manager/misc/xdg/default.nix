@@ -5,12 +5,12 @@ _: {
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = [ "firefox.desktop" ];
-        "x-scheme-handler/http" = [ "firefox.desktop" ];
-        "x-scheme-handler/https" = [ "firefox.desktop" ];
-        "text/html" = [ "firefox.desktop" ];
-        "text/plain" = [ "nvim.desktop" ];
-        "image/png" = [ "firefox.desktop" ];
+        "application/pdf" = ["firefox.desktop"];
+        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
+        "text/html" = ["firefox.desktop"];
+        "text/plain" = ["nvim.desktop"];
+        "image/png" = ["firefox.desktop"];
       };
     };
 
@@ -18,7 +18,7 @@ _: {
     terminal-exec = {
       enable = true;
       settings = {
-        default = [ "Alacritty.desktop" ];
+        default = ["Alacritty.desktop"];
       };
     };
 

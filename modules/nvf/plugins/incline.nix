@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   vim.lazy.plugins."incline.nvim" = {
     package = pkgs.vimPlugins.incline-nvim;
     setupModule = "incline";

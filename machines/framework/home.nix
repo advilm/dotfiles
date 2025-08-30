@@ -1,5 +1,8 @@
-{ hmModules, pkgs, ... }:
 {
+  hmModules,
+  pkgs,
+  ...
+}: {
   imports = [
     "${hmModules}/common"
     "${hmModules}/misc/cursor"

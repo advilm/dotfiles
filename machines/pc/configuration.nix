@@ -4,8 +4,7 @@
   pkgs,
   user,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.common-gpu-amd
@@ -25,7 +24,7 @@
   ];
 
   # plex
-  networking.firewall.allowedTCPPorts = [ 32400 ];
+  networking.firewall.allowedTCPPorts = [32400];
 
   services.avahi = {
     enable = true;

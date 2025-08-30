@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   vim.lazy.plugins."fastaction.nvim" = {
     package = pkgs.vimUtils.buildVimPlugin {
       pname = "fastaction.nvim";
@@ -21,7 +20,7 @@
     };
     keys = [
       {
-        mode = [ "n" ];
+        mode = ["n"];
         key = "<leader>ca";
         lua = true;
         action = "function()
