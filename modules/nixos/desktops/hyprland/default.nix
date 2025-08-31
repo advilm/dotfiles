@@ -7,4 +7,6 @@ _: {
       exec uwsm start default
     end
   '';
+
+  services.playerctld.enable = true;
 }

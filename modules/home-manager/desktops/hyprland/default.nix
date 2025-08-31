@@ -22,6 +22,7 @@
   };
 
   services.hyprpolkitagent.enable = true;
+  services.playerctld.enable = true;
 
   wayland.windowManager.hyprland = {
     settings = {

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   programs.niri.enable = true;
+
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -23,4 +24,6 @@
       exec uwsm start default
     end
   '';
+
+  services.playerctld.enable = true;
 }

@@ -59,6 +59,7 @@
 
         modules-left = [
           "hyprland/workspaces"
+          "niri/workspaces"
           "wlr/taskbar"
         ];
         modules-center = [
@@ -86,6 +87,12 @@
             attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (i: []);
           in
             attrSet;
+        };
+        "niri/workspaces" = {
+          format = "{icon}";
+          all-outputs = true;
+          on-scroll-up = "niri msg action focus-workspace-up";
+          on-scroll-down = "niri msg action focus-workspace-up";
         };
         "wlr/taskbar" = {
           on-click = "activate";
