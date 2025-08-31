@@ -38,7 +38,7 @@
     mkConfiguration = user: host: system:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs nixpkgs host user;
+          inherit self inputs nixpkgs host user;
           userConfig = userConfigs.${user};
           nixosModules = "${self}/modules/nixos";
         };
@@ -51,7 +51,7 @@
             home-manager.users.${user} = ./machines/${host}/home.nix;
 
             home-manager.extraSpecialArgs = {
-              inherit inputs user;
+              inherit self inputs user;
               userConfig = userConfigs.${user};
               hmModules = "${self}/modules/home-manager";
             };
@@ -109,8 +109,24 @@
         }
     );
 
-    packages = mkSystemPackages ["x86_64-linux" "aarch64-linux" "aarch64-darwin"] (system: {
+    packages = mkSystemPackages ["x86_64-linux" "aarch64-linux" "aarch64-darwin"] (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in {
       inherit (mkNvfConfiguration system) neovim;
+      notify-call = pkgs.rustPlatform.buildRustPackage {
+        pname = "notify-call";
+        version = "0.1.1";
+        nativeBuildInputs = [ pkgs.pkg-config ];
+        buildInputs = [ pkgs.dbus ];
+        src = pkgs.fetchFromGitHub {
+          owner = "crabvk";
+          repo = "notify-call";
+          rev = "4c3974bded3e709d0a09cb7e17c099604c8d7cdc";
+          hash = "sha256-6oUFA++M6O0snqMa7r/T3oAMG/uW39bv2hXDRvV1NrY=";
+        };
+        cargoHash = "sha256-bebWiK77YHJhRfe0tikdPrc6hAbrzzUXYWFMLN3P5j4=";
+        doCheck = false;
+      };
     });
   };
 }
