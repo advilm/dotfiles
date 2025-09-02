@@ -54,10 +54,6 @@ in {
     prefer-no-csd
     input {
         keyboard {
-            xkb {
-                layout "us"
-                variant "dvorak"
-            }
             repeat-delay 300
             repeat-rate 25
         }

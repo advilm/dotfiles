@@ -32,7 +32,6 @@
   ];
 
   wayland.windowManager.hyprland.settings = {
-    input.kb_variant = "dvorak";
     input.touchpad = {
       disable_while_typing = "yes";
       scroll_factor = 0.7;
