@@ -92,7 +92,7 @@
           format = "{icon}";
           all-outputs = true;
           on-scroll-up = "niri msg action focus-workspace-up";
-          on-scroll-down = "niri msg action focus-workspace-up";
+          on-scroll-down = "niri msg action focus-workspace-down";
         };
         "wlr/taskbar" = {
           on-click = "activate";

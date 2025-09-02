@@ -123,6 +123,8 @@ in {
         Mod+Y repeat=false { toggle-column-tabbed-display; }
         Mod+Comma repeat=false { consume-or-expel-window-left; }
         Mod+Period repeat=false { consume-or-expel-window-right; }
+        Mod+C repeat=false { center-column; }
+        Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
         Mod+Left { focus-column-left; }
         Mod+Down { focus-window-down; }
@@ -151,15 +153,15 @@ in {
         Mod+7 { focus-workspace 7; }
         Mod+8 { focus-workspace 8; }
         Mod+9 { focus-workspace 9; }
-        Mod+Shift+1 { move-column-to-workspace "1"; }
-        Mod+Shift+2 { move-column-to-workspace "2"; }
-        Mod+Shift+3 { move-column-to-workspace "3"; }
-        Mod+Shift+4 { move-column-to-workspace "4"; }
-        Mod+Shift+5 { move-column-to-workspace 5; }
-        Mod+Shift+6 { move-column-to-workspace 6; }
-        Mod+Shift+7 { move-column-to-workspace 7; }
-        Mod+Shift+8 { move-column-to-workspace 8; }
-        Mod+Shift+9 { move-column-to-workspace 9; }
+        Mod+Shift+1 { move-column-to-workspace focus=false "1"; }
+        Mod+Shift+2 { move-column-to-workspace focus=false "2"; }
+        Mod+Shift+3 { move-column-to-workspace focus=false "3"; }
+        Mod+Shift+4 { move-column-to-workspace focus=false "4"; }
+        Mod+Shift+5 { move-column-to-workspace focus=false 5; }
+        Mod+Shift+6 { move-column-to-workspace focus=false 6; }
+        Mod+Shift+7 { move-column-to-workspace focus=false 7; }
+        Mod+Shift+8 { move-column-to-workspace focus=false 8; }
+        Mod+Shift+9 { move-column-to-workspace focus=false 9; }
 
         Print { screenshot show-pointer=false; }
         Ctrl+Print { screenshot-screen write-to-disk=false; }
