@@ -32,6 +32,11 @@
     };
   };
 
+  # Allow qtwebengine-5.15.19 to be installed for jellyfin-media-player
+  nixpkgs.config.permittedInsecurePackages = [
+    "qtwebengine-5.15.19"
+  ];
+
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;

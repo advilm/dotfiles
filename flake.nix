@@ -61,7 +61,6 @@
           {
             # flake packages
             environment.systemPackages = [
-              inputs.anyrun.packages.${system}.anyrun
               self.packages.${system}.neovim
             ];
           }

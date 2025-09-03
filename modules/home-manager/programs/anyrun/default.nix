@@ -5,6 +5,7 @@
 }: {
   programs.anyrun = {
     enable = true;
+    package = inputs.anyrun.packages.${pkgs.system}.anyrun;
     config = {
       x.fraction = 0.5;
       y.fraction = 0.4;
@@ -33,7 +34,7 @@
 
     extraConfigFiles."nix-run.ron".text = ''
       Config(
-        prefix: ":nr"
+        prefix: ":nr",
         allow_unfree: true,
         channel: "nixpkgs-unstable",
         max_entries: 5,
