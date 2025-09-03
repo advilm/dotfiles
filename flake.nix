@@ -50,20 +50,25 @@
             home-manager.useUserPackages = true;
             home-manager.users.${user} = ./machines/${host}/home.nix;
 
+            home-manager.sharedModules = [
+              # Import anyrun's flake home-manager module, disable existing module
+              inputs.anyrun.homeManagerModules.default
+              ({modulesPath, ...}: {
+                disabledModules = ["${modulesPath}/programs/anyrun.nix"];
+              })
+
+              {home.packages = [self.packages.${system}.neovim];}
+            ];
+
             home-manager.extraSpecialArgs = {
               inherit self inputs user;
               userConfig = userConfigs.${user};
               hmModules = "${self}/modules/home-manager";
             };
           }
+
           inputs.nur.modules.nixos.default
           inputs.nix-index-database.nixosModules.nix-index
-          {
-            # flake packages
-            environment.systemPackages = [
-              self.packages.${system}.neovim
-            ];
-          }
         ];
       };
 
@@ -115,8 +120,8 @@
       notify-call = pkgs.rustPlatform.buildRustPackage {
         pname = "notify-call";
         version = "0.1.1";
-        nativeBuildInputs = [ pkgs.pkg-config ];
-        buildInputs = [ pkgs.dbus ];
+        nativeBuildInputs = [pkgs.pkg-config];
+        buildInputs = [pkgs.dbus];
         src = pkgs.fetchFromGitHub {
           owner = "crabvk";
           repo = "notify-call";

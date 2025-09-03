@@ -1,5 +1,6 @@
 {
   hmModules,
+  inputs,
   pkgs,
   ...
 }: {
