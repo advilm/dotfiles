@@ -205,6 +205,11 @@ in {
 
     spawn-at-startup "${pkgs.xfce.xfce4-notifyd}/lib/xfce4/notifyd/xfce4-notifyd"
     spawn-at-startup "niri" "msg" "action" "focus-workspace" "1"
+
+    debug {
+        // Focus on window activation
+        honor-xdg-activation-with-invalid-serial
+    }
   '';
 
   home.packages = with pkgs; [
