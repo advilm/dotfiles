@@ -120,11 +120,14 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
-    extraConfig.pipewire-pulse = {
-      "50-block-source-volume-changes" = {
-        "monitor.alsa.rules" = [
+    extraConfig.pipewire = {
+      "10-block-agc" = {
+        "pulse.rules" = [
           {
-            matches = [{"application.name" = "Chromium Input";}];
+            # Block every client from touching source (mic) volume
+            matches = [
+              {"application.process.binary" = "~.*";}
+            ];
             actions = {
               quirks = ["block-source-volume"];
             };
