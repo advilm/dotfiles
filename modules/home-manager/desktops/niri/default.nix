@@ -1,19 +1,22 @@
 {
+  lib,
   self,
   pkgs,
   ...
 }: let
-  alacritty = pkgs.writeShellScriptBin "spawnAlacritty" ''
+  inherit (lib) getExe;
+
+  alacritty = getExe (pkgs.writeShellScriptBin "spawn-alacritty" ''
     if pgrep -x alacritty >/dev/null; then
         alacritty msg create-window
     else
-        alacritty
+        uwsm app -- alacritty
     fi
-  '';
+  '');
 
-  notify-call = "${self.packages.${pkgs.system}.notify-call}/bin/notify-call";
+  notify-call = getExe self.packages.${pkgs.system}.notify-call;
 
-  changeBrightness = pkgs.writeShellScriptBin "change-brightness" ''
+  changeBrightness = getExe (pkgs.writeShellScriptBin "change-brightness" ''
     if [ "$1" = "up" ]; then
       brightnessctl set +5%
     elif [ "$1" = "down" ]; then
@@ -21,9 +24,9 @@
     fi
     brightness="$(brightnessctl -m | cut -d, -f4 | tr -d %)"
     ${notify-call} -i display-brightness-symbolic -R brightness --hint int:value:"$brightness" -t 2000 ""
-  '';
+  '');
 
-  changeVolume = pkgs.writeShellScriptBin "change-volume" ''
+  changeVolume = getExe (pkgs.writeShellScriptBin "change-volume" ''
     if [ "$1" = "up" ]; then
       wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+
     elif [ "$1" = "down" ]; then
@@ -44,10 +47,10 @@
       else
         level="low"
       fi
-        
+
       ${notify-call} -i audio-volume-$level-symbolic -R volume --hint int:value:"$volume" -t 2000 ""
     fi
-  '';
+  '');
 in {
   imports = [../shared/waybar];
   xdg.configFile."niri/config.kdl".text = ''
@@ -74,9 +77,9 @@ in {
             proportion 0.5
         }
         preset-column-widths {
-            proportion 0.5
             proportion 0.66667
             proportion 0.33333
+            proportion 0.5
         }
         border {
             width 2
@@ -107,7 +110,7 @@ in {
     workspace "3"
     workspace "4"
     binds {
-        Mod+Return repeat=false { spawn "${alacritty}/bin/spawnAlacritty"; }
+        Mod+Return repeat=false { spawn "${alacritty}"; }
         Mod+Space repeat=false { spawn "uwsm" "app" "--" "anyrun"; }
         Mod+W repeat=false { close-window; }
 
@@ -174,9 +177,9 @@ in {
         Mod+WheelScrollRight { focus-column-right; }
         Mod+WheelScrollLeft { focus-column-left; }
 
-        XF86AudioRaiseVolume { spawn "${changeVolume}/bin/change-volume" "up"; }
-        XF86AudioLowerVolume { spawn "${changeVolume}/bin/change-volume" "down"; }
-        XF86AudioMute { spawn "${changeVolume}/bin/change-volume" "mute"; }
+        XF86AudioRaiseVolume { spawn "${changeVolume}" "up"; }
+        XF86AudioLowerVolume { spawn "${changeVolume}" "down"; }
+        XF86AudioMute { spawn "${changeVolume}" "mute"; }
         XF86AudioMicMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
         XF86AudioNext { spawn "playerctl" "next"; }
@@ -185,10 +188,10 @@ in {
         XF86AudioPause { spawn "playerctl" "play-pause"; }
 
         XF86MonBrightnessUp allow-when-locked=true {
-            spawn "${changeBrightness}/bin/change-brightness" "up"
+            spawn "${changeBrightness}" "up"
         }
         XF86MonBrightnessDown allow-when-locked=true {
-            spawn "${changeBrightness}/bin/change-brightness" "down"
+            spawn "${changeBrightness}" "down"
         }
     }
     window-rule {
@@ -203,8 +206,15 @@ in {
         open-maximized true
     }
 
-    spawn-at-startup "${pkgs.xfce.xfce4-notifyd}/lib/xfce4/notifyd/xfce4-notifyd"
-    spawn-at-startup "niri" "msg" "action" "focus-workspace" "1"
+    spawn-at-startup "${getExe pkgs.xfce.xfce4-notifyd}"
+
+    environment {
+        _JAVA_AWT_WM_NONREPARENTING "1"
+    }
+
+    xwayland-satellite {
+        path "${getExe pkgs.xwayland-satellite}"
+    }
 
     debug {
         // Focus on window activation

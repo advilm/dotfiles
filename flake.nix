@@ -130,6 +130,7 @@
         };
         cargoHash = "sha256-bebWiK77YHJhRfe0tikdPrc6hAbrzzUXYWFMLN3P5j4=";
         doCheck = false;
+        meta.mainProgram = "notify-call";
       };
     });
   };
