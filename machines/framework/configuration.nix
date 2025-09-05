@@ -38,8 +38,6 @@
   # enable when doing firmware updates
   services.fwupd.enable = false;
 
-  console.keyMap = "dvorak";
-
   # use package cache on laptop
   nix.settings = {
     substituters = [
