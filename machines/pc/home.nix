@@ -9,7 +9,7 @@
     "${hmModules}/misc/fonts"
     "${hmModules}/misc/gtk"
     "${hmModules}/misc/xdg"
-    "${hmModules}/desktops/hyprland"
+    "${hmModules}/desktops/niri"
     "${hmModules}/programs/alacritty"
     "${hmModules}/programs/anyrun"
     "${hmModules}/programs/firefox"
