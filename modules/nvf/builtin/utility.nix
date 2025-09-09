@@ -16,6 +16,10 @@
     diffview-nvim.enable = true;
   };
 
+  vim.comments = {
+    comment-nvim.enable = true;
+  };
+
   vim.git.gitsigns.enable = true;
 
   vim.autopairs.nvim-autopairs = {

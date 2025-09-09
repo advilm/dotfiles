@@ -7,7 +7,6 @@ _: {
     ./guess-indent.nix
     ./grug-far.nix
     ./incline.nix
-    ./osc52.nix
     ./snacks.nix
     ./treesj.nix
   ];
