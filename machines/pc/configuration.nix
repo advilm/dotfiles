@@ -13,13 +13,14 @@
     "${nixosModules}/common"
 
     "${nixosModules}/common"
-    "${nixosModules}/desktops/hyprland"
+    "${nixosModules}/desktops/niri"
     "${nixosModules}/programs/docker"
     "${nixosModules}/programs/nautilus"
     "${nixosModules}/programs/nh"
     "${nixosModules}/programs/obs-studio"
     "${nixosModules}/programs/steam"
     "${nixosModules}/programs/virt-manager"
+    "${nixosModules}/services/keyd"
     "${nixosModules}/services/openssh"
   ];
 
