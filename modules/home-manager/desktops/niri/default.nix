@@ -206,7 +206,7 @@ in {
         open-maximized true
     }
 
-    spawn-at-startup "${getExe pkgs.xfce.xfce4-notifyd}"
+    spawn-at-startup "${pkgs.xfce.xfce4-notifyd}/lib/xfce4/notifyd/xfce4-notifyd"
 
     environment {
         _JAVA_AWT_WM_NONREPARENTING "1"
