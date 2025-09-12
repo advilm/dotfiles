@@ -27,7 +27,10 @@
   # ];
 
   systemd.sleep.extraConfig = "HibernateDelaySec=1h";
-  services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "sleep";
+    HandleSuspendKey = "sleep";
+  };
   powerManagement.resumeCommands = ''
     systemctl restart tlp.service
   '';

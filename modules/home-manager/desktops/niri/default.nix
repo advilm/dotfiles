@@ -2,21 +2,22 @@
   lib,
   self,
   pkgs,
+  host,
   ...
 }: let
   inherit (lib) getExe;
 
-  alacritty = getExe (pkgs.writeShellScriptBin "spawn-alacritty" ''
+  alacritty = pkgs.writeShellScript "spawn-alacritty" ''
     if pgrep -x alacritty >/dev/null; then
         alacritty msg create-window
     else
         uwsm app -- alacritty
     fi
-  '');
+  '';
 
   notify-call = getExe self.packages.${pkgs.system}.notify-call;
 
-  changeBrightness = getExe (pkgs.writeShellScriptBin "change-brightness" ''
+  changeBrightness = pkgs.writeShellScript "change-brightness" ''
     if [ "$1" = "up" ]; then
       brightnessctl set +5%
     elif [ "$1" = "down" ]; then
@@ -24,9 +25,9 @@
     fi
     brightness="$(brightnessctl -m | cut -d, -f4 | tr -d %)"
     ${notify-call} -i display-brightness-symbolic -R brightness --hint int:value:"$brightness" -t 2000 ""
-  '');
+  '';
 
-  changeVolume = getExe (pkgs.writeShellScriptBin "change-volume" ''
+  changeVolume = pkgs.writeShellScript "change-volume" ''
     if [ "$1" = "up" ]; then
       wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+
     elif [ "$1" = "down" ]; then
@@ -50,7 +51,7 @@
 
       ${notify-call} -i audio-volume-$level-symbolic -R volume --hint int:value:"$volume" -t 2000 ""
     fi
-  '');
+  '';
 in {
   imports = [../shared/waybar];
   xdg.configFile."niri/config.kdl".text = ''
@@ -221,6 +222,85 @@ in {
         honor-xdg-activation-with-invalid-serial
     }
   '';
+
+  services.swayidle = let
+    screen-blank-timeout = 15 * minutes;
+    lock-after-blank-timeout = 15 * seconds;
+    sleep-timeout = 45 * minutes;
+
+    seconds = 1;
+    minutes = 60;
+
+    niri = getExe pkgs.niri;
+    systemctl = "${pkgs.systemd}/bin/systemctl";
+    loginctl = "${pkgs.systemd}/bin/loginctl";
+    playerctl = getExe pkgs.playerctl;
+    swaylock = getExe pkgs.swaylock;
+
+    lock-session = pkgs.writeShellScript "lock-session" ''
+      ${swaylock} -f
+
+      ${playerctl} pause 2>/dev/null || true
+      # can cause premature suspend if using laptop with lid closed
+      ${niri} msg action power-off-monitors
+    '';
+
+    before-sleep = pkgs.writeShellScript "before-sleep" ''
+      ${loginctl} lock-session
+    '';
+  in {
+    enable = true;
+    timeouts = [
+      {
+        timeout = screen-blank-timeout;
+        command = "${niri} msg action power-off-monitors";
+      }
+      {
+        timeout = screen-blank-timeout + lock-after-blank-timeout;
+        command = "${loginctl} lock-session";
+      }
+      {
+        timeout = sleep-timeout;
+        command = "${systemctl} sleep";
+      }
+    ];
+    events = [
+      {
+        event = "lock";
+        command = lock-session.outPath;
+      }
+      {
+        event = "before-sleep";
+        command = before-sleep.outPath;
+      }
+    ];
+  };
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      color = "000000";
+      inside-color = "ffffff1c";
+      ring-color = "ffffff3e";
+      line-color = "ffffff00";
+      key-hl-color = "00000080";
+      ring-ver-color = "00000000";
+      separator-color = "22222260";
+      inside-ver-color = "0000001c";
+      ring-clear-color = "ff994430";
+      inside-clear-color = "ff994400";
+      ring-wrong-color = "e34040ff";
+      inside-wrong-color = "00000000";
+      text-ver-color = "00000000";
+      text-wrong-color = "00000000";
+      text-caps-lock-color = "00000000";
+      text-clear-color = "00000000";
+      line-clear-color = "00000000";
+      line-wrong-color = "00000000";
+      line-ver-color = "00000000";
+      text-color = "db3300ff";
+    };
+  };
 
   home.packages = with pkgs; [
     wl-clipboard
