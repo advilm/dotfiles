@@ -35,7 +35,6 @@
         margin: 10px;
         border: 2px solid @theme_selected_bg_color;
         background-color: @theme_bg_color;
-        box-shadow: 0 0 5px black;
       }
 
       text {
@@ -54,7 +53,7 @@
       }
 
       list.plugin row {
-        margin-top: 2px;
+        margin-top: 3px;
         margin-left: 12px;
         background: transparent;
       }
@@ -75,7 +74,7 @@
       }
 
       label.match.description {
-        font-size: 16px;
+        font-size: 12px;
       }
     '';
 
