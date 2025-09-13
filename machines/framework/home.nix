@@ -1,6 +1,5 @@
 {
   hmModules,
-  inputs,
   pkgs,
   ...
 }: {
@@ -38,12 +37,6 @@
       scroll_factor = 0.7;
       drag_lock = 1;
     };
-    device = [
-      {
-        name = "yiancar-designs-nk65b";
-        kb_variant = "";
-      }
-    ];
     gestures = {
       workspace_swipe = true;
       workspace_swipe_invert = false;
