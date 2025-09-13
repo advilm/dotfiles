@@ -14,6 +14,7 @@
   hardware.enableRedistributableFirmware = true;
 
   nix = {
+    package = pkgs.lixPackageSets.latest.lix;
     settings = {
       experimental-features = [
         "nix-command"
