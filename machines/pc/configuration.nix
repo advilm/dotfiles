@@ -2,7 +2,6 @@
   inputs,
   nixosModules,
   pkgs,
-  user,
   ...
 }: {
   imports = [

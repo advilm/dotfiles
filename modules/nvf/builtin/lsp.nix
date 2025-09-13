@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+_: {
   vim.lsp.enable = true;
   vim.lsp.otter-nvim.enable = true;
 

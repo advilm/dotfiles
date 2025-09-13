@@ -2,7 +2,6 @@
   lib,
   self,
   pkgs,
-  host,
   ...
 }: let
   inherit (lib) getExe;

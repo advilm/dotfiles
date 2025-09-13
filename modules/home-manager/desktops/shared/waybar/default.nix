@@ -84,7 +84,7 @@
           on-click = "activate";
           all-outputs = true;
           persistent-workspaces = let
-            attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (i: []);
+            attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (_: []);
           in
             attrSet;
         };
