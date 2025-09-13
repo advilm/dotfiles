@@ -38,7 +38,7 @@
       }
 
       text {
-        font-size: 20px;
+        font-size: 18px;
         min-height: 30px;
         padding: 5px;
         border-radius: 5px;
@@ -53,7 +53,7 @@
       }
 
       list.plugin row {
-        margin-top: 3px;
+        margin-bottom: 4px;
         margin-left: 12px;
         background: transparent;
       }
@@ -65,26 +65,28 @@
         background: @theme_bg_color;
       }
 
-      list.plugin row:first-child {
-        margin-top: 0px;
-      }
-
       label.match.title {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       label.match.description {
         font-size: 12px;
       }
     '';
-
-    extraConfigFiles."nix-run.ron".text = ''
-      Config(
-        prefix: ":nr",
-        allow_unfree: true,
-        channel: "nixpkgs-unstable",
-        max_entries: 5,
-      )
-    '';
+    extraConfigFiles = {
+      "rink.ron".text = ''
+        Config(
+          prefix: "=",
+        )
+      '';
+      "nix-run.ron".text = ''
+        Config(
+          prefix: ":nr",
+          allow_unfree: true,
+          channel: "nixpkgs-unstable",
+          max_entries: 5,
+        )
+      '';
+    };
   };
 }
