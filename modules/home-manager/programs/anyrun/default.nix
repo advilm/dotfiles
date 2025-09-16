@@ -75,14 +75,19 @@
       }
     '';
     extraConfigFiles = {
-      "rink.ron".text = ''
+      "applications.ron".text = ''
         Config(
-          prefix: "=",
+          hide_descriptions: true,
         )
       '';
       "powermenu.ron".text = ''
         Config(
           prefix: ":sys",
+        )
+      '';
+      "rink.ron".text = ''
+        Config(
+          prefix: "=",
         )
       '';
       "nix-run.ron".text = ''
