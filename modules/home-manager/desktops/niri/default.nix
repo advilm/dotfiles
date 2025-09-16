@@ -82,7 +82,7 @@ in {
             proportion 0.5
         }
         border {
-            width 2
+            width 1
             active-color "#82AAFF"
         }
         focus-ring {
