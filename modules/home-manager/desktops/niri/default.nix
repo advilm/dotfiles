@@ -205,6 +205,10 @@ in {
         match app-id="firefox|vesktop|spotify"
         open-maximized true
     }
+    window-rule {
+        match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+        default-floating-position x=10 y=10 relative-to="bottom-right"
+    }
 
     spawn-at-startup "${pkgs.xfce.xfce4-notifyd}/lib/xfce4/notifyd/xfce4-notifyd"
 
