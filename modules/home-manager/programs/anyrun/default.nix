@@ -20,6 +20,7 @@
 
       plugins = [
         inputs.anyrun.packages.${pkgs.system}.applications
+        inputs.anyrun.packages.${pkgs.system}.powermenu
         inputs.anyrun.packages.${pkgs.system}.rink
         inputs.anyrun.packages.${pkgs.system}.nix-run
       ];
@@ -77,6 +78,11 @@
       "rink.ron".text = ''
         Config(
           prefix: "=",
+        )
+      '';
+      "powermenu.ron".text = ''
+        Config(
+          prefix: ":sys",
         )
       '';
       "nix-run.ron".text = ''
