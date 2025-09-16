@@ -9,15 +9,15 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1757576199,
-        "narHash": "sha256-lBk/MaHyVNH9tmAd12frY8MYzNU4fhbfC41LH8hl2UE=",
-        "owner": "anyrun-org",
+        "lastModified": 1758141903,
+        "narHash": "sha256-czjc+q1MFM0A4LlI7cZUcuDgDSc9dJIOnvzGQ+5mosM=",
+        "owner": "advilm",
         "repo": "anyrun",
-        "rev": "d0b079c851c9d83e56b55ade2b21d9d3fb8038ed",
+        "rev": "b594f7c74c14d8e38b81ce68ce1b1f7762313ec3",
         "type": "github"
       },
       "original": {
-        "owner": "anyrun-org",
+        "owner": "advilm",
         "repo": "anyrun",
         "type": "github"
       }

@@ -15,7 +15,7 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
-    anyrun.url = "github:anyrun-org/anyrun";
+    anyrun.url = "github:advilm/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
 
     nvf.url = "github:notashelf/nvf";
