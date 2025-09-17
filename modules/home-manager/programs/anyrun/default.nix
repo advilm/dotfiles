@@ -9,7 +9,7 @@
     config = {
       x.fraction = 0.5;
       y.fraction = 0.4;
-      width.fraction = 0.25;
+      width.absolute = 400;
       hideIcons = false;
       ignoreExclusiveZones = true;
       layer = "overlay";
