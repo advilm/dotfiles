@@ -123,7 +123,7 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
-    extraConfig.pipewire = {
+    extraConfig.pipewire-pulse = {
       "10-block-agc" = {
         "pulse.rules" = [
           {
