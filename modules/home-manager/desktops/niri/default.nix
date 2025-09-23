@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) getExe;
+  inherit (lib) getExe getExe' getLib;
 
   alacritty = pkgs.writeShellScript "spawn-alacritty" ''
     if pgrep -x alacritty >/dev/null; then
@@ -111,7 +111,7 @@ in {
     workspace "4"
     binds {
         Mod+Return repeat=false { spawn "${alacritty}"; }
-        Mod+Space repeat=false { spawn "uwsm" "app" "--" "anyrun"; }
+        Mod+Space repeat=false { spawn "anyrun"; }
         Mod+W repeat=false { close-window; }
 
         Mod+Shift+E { quit skip-confirmation=true; }
@@ -210,7 +210,7 @@ in {
         default-floating-position x=10 y=10 relative-to="bottom-right"
     }
 
-    spawn-at-startup "${pkgs.xfce.xfce4-notifyd}/lib/xfce4/notifyd/xfce4-notifyd"
+    spawn-at-startup "${getLib pkgs.xfce.xfce4-notifyd}/xfce4/notifyd/xfce4-notifyd"
 
     environment {
         _JAVA_AWT_WM_NONREPARENTING "1"
@@ -235,8 +235,8 @@ in {
     minutes = 60;
 
     niri = getExe pkgs.niri;
-    systemctl = "${pkgs.systemd}/bin/systemctl";
-    loginctl = "${pkgs.systemd}/bin/loginctl";
+    systemctl = getExe' pkgs.systemd "systemctl";
+    loginctl = getExe' pkgs.systemd "loginctl";
     playerctl = getExe pkgs.playerctl;
     swaylock = getExe pkgs.swaylock;
 
