@@ -12,6 +12,7 @@
     "${hmModules}/desktops/niri"
     "${hmModules}/programs/alacritty"
     "${hmModules}/programs/anyrun"
+    "${hmModules}/programs/evince"
     "${hmModules}/programs/firefox"
     "${hmModules}/programs/fzf"
     "${hmModules}/programs/git"

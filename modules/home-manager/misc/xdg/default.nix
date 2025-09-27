@@ -1,11 +1,11 @@
-_: {
+{lib, ...}: {
   xdg = {
     enable = true;
 
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = ["firefox.desktop"];
+        "application/pdf" = lib.mkDefault ["firefox.desktop"];
         "x-scheme-handler/http" = ["firefox.desktop"];
         "x-scheme-handler/https" = ["firefox.desktop"];
         "text/html" = ["firefox.desktop"];
