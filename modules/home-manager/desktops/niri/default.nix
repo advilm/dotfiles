@@ -244,8 +244,6 @@ in {
       ${swaylock} -f
 
       ${playerctl} pause 2>/dev/null || true
-      # can cause premature suspend if using laptop with lid closed
-      ${niri} msg action power-off-monitors
     '';
 
     before-sleep = pkgs.writeShellScript "before-sleep" ''
