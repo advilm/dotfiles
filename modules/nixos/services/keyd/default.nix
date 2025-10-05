@@ -105,4 +105,12 @@
   };
 
   users.users.${user}.extraGroups = ["keyd"];
+
+  # Make libinput treat keyd as internal keyboard
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Serial Keyboards]
+    MatchUdevType=keyboard
+    MatchName=keyd*keyboard
+    AttrKeyboardIntegration=internal
+  '';
 }
