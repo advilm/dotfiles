@@ -10,6 +10,7 @@
         "x-scheme-handler/https" = ["firefox.desktop"];
         "text/html" = ["firefox.desktop"];
         "text/plain" = ["nvim.desktop"];
+        "application/x-zerosize" = ["nvim.desktop"];
         "image/png" = ["firefox.desktop"];
       };
     };
