@@ -303,6 +303,8 @@ in {
     };
   };
 
+  services.polkit-gnome.enable = true;
+
   home.packages = with pkgs; [
     wl-clipboard
     xfce.xfce4-notifyd
