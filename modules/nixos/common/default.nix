@@ -42,7 +42,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 
-    kernelParams = [ "quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
+    kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
 
     kernelPackages = pkgs.linuxPackages_latest;
 
@@ -59,7 +59,7 @@
       plugins = [pkgs.networkmanager-openvpn];
     };
 
-    nameservers = ["1.1.1.1"];
+    nameservers = ["1.0.0.1"];
   };
 
   time.timeZone = "America/Los_Angeles";
