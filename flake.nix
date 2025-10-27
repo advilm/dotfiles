@@ -122,6 +122,7 @@
         version = "0.1.1";
         nativeBuildInputs = [pkgs.pkg-config];
         buildInputs = [pkgs.dbus];
+          
         src = pkgs.fetchFromGitHub {
           owner = "crabvk";
           repo = "notify-call";
