@@ -68,7 +68,7 @@
   console.keyMap = lib.mkDefault "us";
 
   fonts.packages = with pkgs; [
-    ubuntu_font_family
+    ubuntu-classic
     liberation_ttf
     noto-fonts
     noto-fonts-cjk-sans
@@ -129,7 +129,7 @@
           {
             # Block every client from touching source (mic) volume
             matches = [
-              {"application.process.binary" = "~.*";}
+              {"application.process.binary" = "electron";}
             ];
             actions = {
               quirks = ["block-source-volume"];

@@ -5,7 +5,6 @@
 }: {
   home.packages = with pkgs; [
     font-awesome
-    swaybg
   ];
 
   programs.waybar = {

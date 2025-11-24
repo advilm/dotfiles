@@ -1,8 +1,9 @@
 {userConfig, ...}: {
   programs.git = {
     enable = true;
-    userEmail = userConfig.email;
-    userName = userConfig.name;
+    settings.user = {
+      inherit (userConfig) email name;
+    };
     signing.key = userConfig.signing_key;
     signing.signByDefault = true;
   };
