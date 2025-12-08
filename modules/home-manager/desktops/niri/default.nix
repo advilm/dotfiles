@@ -14,7 +14,7 @@
     fi
   '';
 
-  notify-call = getExe self.packages.${pkgs.system}.notify-call;
+  notify-call = getExe self.packages.${pkgs.stdenv.hostPlatform.system}.notify-call;
 
   changeBrightness = pkgs.writeShellScript "change-brightness" ''
     if [ "$1" = "up" ]; then
@@ -194,6 +194,7 @@ in {
             spawn "${changeBrightness}" "down"
         }
     }
+
     window-rule {
         match is-window-cast-target=true
         border {
@@ -265,16 +266,10 @@ in {
         command = "${systemctl} sleep";
       }
     ];
-    events = [
-      {
-        event = "lock";
-        command = lock-session.outPath;
-      }
-      {
-        event = "before-sleep";
-        command = before-sleep.outPath;
-      }
-    ];
+    events = {
+      "lock" = lock-session.outPath;
+      "before-sleep" = before-sleep.outPath;
+    };
   };
 
   programs.swaylock = {

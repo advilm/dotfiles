@@ -5,7 +5,7 @@
 }: {
   programs.anyrun = {
     enable = true;
-    package = inputs.anyrun.packages.${pkgs.system}.anyrun;
+    package = inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}.anyrun;
     config = {
       x.fraction = 0.5;
       y.fraction = 0.4;
@@ -19,10 +19,10 @@
       maxEntries = 5;
 
       plugins = [
-        inputs.anyrun.packages.${pkgs.system}.applications
-        inputs.anyrun.packages.${pkgs.system}.powermenu
-        inputs.anyrun.packages.${pkgs.system}.rink
-        inputs.anyrun.packages.${pkgs.system}.nix-run
+        inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}.applications
+        inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}.powermenu
+        inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}.rink
+        inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}.nix-run
       ];
     };
 
