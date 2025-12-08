@@ -120,14 +120,17 @@ in {
         Mod+V repeat=false { toggle-window-floating; }
         Mod+Shift+V repeat=false { switch-focus-between-floating-and-tiling; }
         Mod+F repeat=false { fullscreen-window; }
+        Mod+Shift+F repeat=false { toggle-windowed-fullscreen; }
         Mod+M repeat=false { maximize-column; }
+        Mod+Shift+M repeat=false { expand-column-to-available-width; }
         Mod+R repeat=false { switch-preset-column-width; }
-        Mod+Shift+R repeat=false { expand-column-to-available-width; }
         Mod+Y repeat=false { toggle-column-tabbed-display; }
         Mod+Comma repeat=false { consume-or-expel-window-left; }
         Mod+Period repeat=false { consume-or-expel-window-right; }
         Mod+C repeat=false { center-column; }
         Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+        Mod+P { spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json pick-window | ${getExe pkgs.jq} .id)"; }
 
         Mod+Left { focus-column-left; }
         Mod+Down { focus-window-down; }
