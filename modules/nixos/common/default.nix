@@ -56,7 +56,7 @@
       enable = true;
       dns = "none";
       wifi.backend = "iwd";
-      plugins = [pkgs.networkmanager-openvpn];
+      plugins = [pkgs.networkmanager-openvpn pkgs.networkmanager-openconnect];
     };
 
     nameservers = ["1.0.0.1"];
