@@ -17,9 +17,11 @@
 
     anyrun.url = "github:advilm/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
-
-    nvf.url = "github:notashelf/nvf";
-    nvf.inputs.nixpkgs.follows = "nixpkgs";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.ndg.inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -122,7 +124,7 @@
         version = "0.1.1";
         nativeBuildInputs = [pkgs.pkg-config];
         buildInputs = [pkgs.dbus];
-          
+
         src = pkgs.fetchFromGitHub {
           owner = "crabvk";
           repo = "notify-call";

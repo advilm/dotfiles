@@ -7,7 +7,7 @@
   home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [
-    jellyfin-media-player
+    jellyfin-desktop
     mpv
     ncdu
     pavucontrol
