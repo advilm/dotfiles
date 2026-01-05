@@ -121,7 +121,7 @@ in {
         Mod+Shift+V repeat=false { switch-focus-between-floating-and-tiling; }
         Mod+F repeat=false { fullscreen-window; }
         Mod+Shift+F repeat=false { toggle-windowed-fullscreen; }
-        Mod+M repeat=false { maximize-column; }
+        Mod+M repeat=false { maximize-window-to-edges; }
         Mod+Shift+M repeat=false { expand-column-to-available-width; }
         Mod+R repeat=false { switch-preset-column-width; }
         Mod+Y repeat=false { toggle-column-tabbed-display; }
@@ -206,8 +206,8 @@ in {
         }
     }
     window-rule {
-        match app-id="firefox|vesktop|spotify"
-        open-maximized true
+        match app-id="firefox|vesktop|spotify|org.jellyfin.JellyfinDesktop"
+        open-maximized-to-edges true
     }
     window-rule {
         match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
