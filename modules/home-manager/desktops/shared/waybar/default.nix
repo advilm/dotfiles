@@ -9,6 +9,16 @@
 
   programs.waybar = {
     enable = true;
+
+    package = pkgs.waybar.overrideAttrs (old: {
+      src = pkgs.fetchFromGitHub {
+        owner = "advilm";
+        repo = "Waybar";
+        rev = "e9038eb497f14466cc5c6215d1a7d57ca4db4b36";
+        sha256 = "sha256-OvqCvQbyDavrJ7axNgPatFFuxZpzmj9+unVz9LA34bY=";
+      };
+    });
+
     systemd.enable = true;
     style = ''
       * {
@@ -42,6 +52,18 @@
         box-shadow: inset 0 -2px #82AAFF;
       }
 
+      #taskbar button:hover {
+        color: inherit;
+        background-color: #353a47;
+        box-shadow: inset 0 -2px #82AAFF;
+      }
+
+      #taskbar button.active {
+        color: inherit;
+        background-color: #353a47;
+        box-shadow: inset 0 -2px #82AAFF;
+      }
+
       button {
         box-shadow: inset 0 0;
         border-radius: 0;
@@ -56,13 +78,11 @@
       {
         height = 30;
 
+        position = "top";
+
         modules-left = [
-          "hyprland/workspaces"
           "niri/workspaces"
-          "wlr/taskbar"
-        ];
-        modules-center = [
-          "hyprland/window"
+          "niri/taskbar"
         ];
         modules-right = [
           "network#down"
@@ -74,28 +94,15 @@
           "clock#time"
           "tray"
         ];
-        "hyprland/window" = {
-          format = "{initialTitle}";
-        };
-        "hyprland/workspaces" = {
-          on-scroll-up = "hyprctl dispatch workspace r+1";
-          on-scroll-down = "hyprctl dispatch workspace r-1";
-          on-click = "activate";
-          all-outputs = true;
-          persistent-workspaces = let
-            attrSet = lib.genAttrs (builtins.genList (x: builtins.toString (x + 1)) 10) (_: []);
-          in
-            attrSet;
-        };
         "niri/workspaces" = {
           format = "{icon}";
-          all-outputs = true;
           on-scroll-up = "niri msg action focus-workspace-up";
           on-scroll-down = "niri msg action focus-workspace-down";
         };
-        "wlr/taskbar" = {
+        "niri/taskbar" = {
           on-click = "activate";
           on-click-middle = "close";
+          on-click-right = "maximize";
         };
         tray = {
           icon-size = 12;
