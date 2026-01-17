@@ -63,7 +63,6 @@ in {
         touchpad {
             tap
             dwt
-            accel-profile "flat"
             scroll-factor 0.7
         }
         mouse {
