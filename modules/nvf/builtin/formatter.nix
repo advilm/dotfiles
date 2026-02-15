@@ -5,6 +5,9 @@
       formatters_by_ft = {
         nix = ["alejandra"];
         kdl = ["kdlfmt"];
+        cpp = ["clang-format"];
+        c = ["clang-format"];
+        h = ["clang-format"];
         "*" = ["trim_whitespace" "trim_newlines"];
       };
       default_format_ops = {
@@ -28,5 +31,6 @@
   vim.extraPackages = [
     pkgs.alejandra
     pkgs.kdlfmt
+    pkgs.clang-tools
   ];
 }
