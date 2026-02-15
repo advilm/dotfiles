@@ -14,8 +14,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "advilm";
         repo = "Waybar";
-        rev = "e9038eb497f14466cc5c6215d1a7d57ca4db4b36";
-        sha256 = "sha256-OvqCvQbyDavrJ7axNgPatFFuxZpzmj9+unVz9LA34bY=";
+        rev = "60e8c38cbdfdd4484e9d19ab59d04524c73a633c";
+        sha256 = "sha256-s648edbzaZt/4DRvyCpWHnjcbN7nxU9Fj7VZ+irRQ/8=";
       };
     });
 
