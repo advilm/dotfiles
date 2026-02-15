@@ -1,11 +1,19 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
-  home.packages = with pkgs; [
-    font-awesome
-  ];
+{pkgs, ...}: {
+  home.packages = with pkgs;
+    [
+      font-awesome
+    ]
+    ++ [
+      (pkgs.stdenv.mkDerivation {
+        name = "battery-ttf";
+        src = ../../../fonts;
+        dontBuild = true;
+        installPhase = ''
+          mkdir -p $out/share/fonts/truetype
+          cp battery.ttf $out/share/fonts/truetype
+        '';
+      })
+    ];
 
   programs.waybar = {
     enable = true;
@@ -137,14 +145,18 @@
         "clock#date" = {
           interval = 1;
           timezones = ["America/Los_Angeles"];
-          format = "<span color='#82AAFF'></span> {:%Y-%m-%d}";
+          format = "<span color='#82AAFF' rise='1pt'></span> {:%Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         "clock#time" = {
           interval = 1;
           timezones = ["America/Los_Angeles"];
-          format = "<span color='#82AAFF'>󰥔</span> {:%H:%M}";
+          format = "<span color='#82AAFF' rise='1pt'>󰥔</span> {:%H:%M}";
           tooltip-format = "";
+        };
+        battery = {
+          format = "<span color='#82AAFF' size='small'>{icon}</span> {capacity}%";
+          format-icons = ["" "" "" "" ""];
         };
       }
     ];
