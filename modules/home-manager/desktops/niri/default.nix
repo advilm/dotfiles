@@ -10,7 +10,7 @@
     if pgrep -x alacritty >/dev/null; then
         alacritty msg create-window
     else
-        uwsm app -- alacritty
+        alacritty
     fi
   '';
 
@@ -277,7 +277,7 @@ in {
   programs.swaylock = {
     enable = true;
     settings = {
-      color = "000000";
+      color = "020E1D";
       inside-color = "ffffff1c";
       ring-color = "ffffff3e";
       line-color = "ffffff00";

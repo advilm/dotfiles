@@ -146,8 +146,8 @@
   services.gnome.gnome-keyring.enable = true;
 
   # skip typing username on login
-  services.getty.loginOptions = "-p -- ${user}";
-  services.getty.extraArgs = ["--skip-login"];
+  # services.getty.loginOptions = "-p -- ${user}";
+  # services.getty.extraArgs = ["--skip-login"];
 
   services.upower = {
     enable = true;
