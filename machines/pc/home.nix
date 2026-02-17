@@ -17,6 +17,7 @@
     "${hmModules}/programs/fzf"
     "${hmModules}/programs/git"
     "${hmModules}/programs/gpu_screen_recorder"
+    "${hmModules}/programs/mpv"
     "${hmModules}/programs/overskride"
     "${hmModules}/programs/signal"
     "${hmModules}/programs/spotify"

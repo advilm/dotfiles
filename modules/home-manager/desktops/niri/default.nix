@@ -62,7 +62,6 @@ in {
         }
         touchpad {
             tap
-            dwt
             scroll-factor 0.7
         }
         mouse {
@@ -171,6 +170,8 @@ in {
         Print { screenshot show-pointer=false; }
         Ctrl+Print { screenshot-screen write-to-disk=false; }
         Alt+Print { screenshot-window write-to-disk=false; }
+        Mod+Print { spawn-sh "gpu-screen-recorder -w portal -a default_input -o Videos/\"$(date +\"%Y-%m-%d_%H-%M-%S\")\".mp4"; }
+        Mod+Shift+Print { spawn-sh "pkill -SIGINT gpu-screen-reco"; }
 
         Mod+WheelScrollDown { focus-workspace-down; }
         Mod+WheelScrollUp { focus-workspace-up; }

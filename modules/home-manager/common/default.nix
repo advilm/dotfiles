@@ -9,7 +9,6 @@
   home.packages = with pkgs; [
     jellyfin-desktop
     bitwarden-desktop
-    mpv
     ncdu
     pavucontrol
     ripgrep
