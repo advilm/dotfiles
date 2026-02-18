@@ -85,9 +85,8 @@
     settings = [
       {
         height = 30;
-
         position = "top";
-
+        layer = "top";
         modules-left = [
           "niri/workspaces"
           "niri/taskbar"
