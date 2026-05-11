@@ -13,6 +13,10 @@
       name = "Qogir-Dark";
       package = pkgs.qogir-icon-theme;
     };
+    gtk4.theme = {
+      name = "Matcha-dark-azul";
+      package = pkgs.matcha-gtk-theme;
+    };
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
   };

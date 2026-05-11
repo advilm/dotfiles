@@ -12,8 +12,16 @@ _: {
       {
         output = {
           criteria = "Dell Inc. DELL G2724D 82K16Y3";
-          mode = "2560x1440@165.080002";
+          mode = "2560x1440@143.967";
           scale = 1.0;
+        };
+      }
+      {
+        output = {
+          criteria = "Dell Inc. DELL E2416H G0RH169H06LU";
+          mode = "1920x1080@60.000";
+          scale = 1.0;
+          transform = "270";
         };
       }
       {
@@ -56,7 +64,25 @@ _: {
             {
               criteria = "Dell Inc. DELL G2724D 82K16Y3";
               status = "enable";
-              # mode = "2560x1440@59.95100";
+            }
+          ];
+        };
+      }
+      {
+        profile = {
+          name = "laptop-home-vertical";
+          outputs = [
+            {
+              criteria = "BOE 0x095F Unknown";
+              status = "disable";
+            }
+            {
+              criteria = "Dell Inc. DELL G2724D 82K16Y3";
+              status = "enable";
+            }
+            {
+              criteria = "Dell Inc. DELL E2416H G0RH169H06LU";
+              status = "enable";
             }
           ];
         };

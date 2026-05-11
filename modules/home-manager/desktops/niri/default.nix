@@ -102,11 +102,7 @@ in {
     hotkey-overlay {
         skip-at-startup
     }
-    screenshot-path "~/screenshots/%Y-%m-%d_%H-%M-%S.png"
-    workspace "1"
-    workspace "2"
-    workspace "3"
-    workspace "4"
+    screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
     binds {
         Mod+Return repeat=false { spawn "${alacritty}"; }
         Mod+Space repeat=false { spawn "anyrun"; }
@@ -148,19 +144,46 @@ in {
         Mod+Shift+N { move-window-up; }
         Mod+Shift+S { move-column-right; }
 
-        Mod+1 { focus-workspace "1"; }
-        Mod+2 { focus-workspace "2"; }
-        Mod+3 { focus-workspace "3"; }
-        Mod+4 { focus-workspace "4"; }
+        Mod+Ctrl+Alt+Left { move-workspace-to-monitor-left; }
+        Mod+Ctrl+Alt+Down { move-workspace-down; }
+        Mod+Ctrl+Alt+Up   { move-workspace-up; }
+        Mod+Ctrl+Alt+Right { move-workspace-to-monitor-right; }
+        Mod+Ctrl+Alt+H { move-workspace-to-monitor-left; }
+        Mod+Ctrl+Alt+T { move-workspace-down; }
+        Mod+Ctrl+Alt+N { move-workspace-up; }
+        Mod+Ctrl+Alt+S { move-workspace-to-monitor-right; }
+
+        Mod+Ctrl+Left  { focus-monitor-left; }
+        Mod+Ctrl+Down  { focus-monitor-down; }
+        Mod+Ctrl+Up    { focus-monitor-up; }
+        Mod+Ctrl+Right { focus-monitor-right; }
+        Mod+Ctrl+H     { focus-monitor-left; }
+        Mod+Ctrl+T     { focus-monitor-down; }
+        Mod+Ctrl+N     { focus-monitor-up; }
+        Mod+Ctrl+S     { focus-monitor-right; }
+
+        Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+        Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+        Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+        Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+        Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+        Mod+Shift+Ctrl+T     { move-column-to-monitor-down; }
+        Mod+Shift+Ctrl+N     { move-column-to-monitor-up; }
+        Mod+Shift+Ctrl+S     { move-column-to-monitor-right; }
+
+        Mod+1 { focus-workspace 1; }
+        Mod+2 { focus-workspace 2; }
+        Mod+3 { focus-workspace 3; }
+        Mod+4 { focus-workspace 4; }
         Mod+5 { focus-workspace 5; }
         Mod+6 { focus-workspace 6; }
         Mod+7 { focus-workspace 7; }
         Mod+8 { focus-workspace 8; }
         Mod+9 { focus-workspace 9; }
-        Mod+Shift+1 { move-column-to-workspace focus=false "1"; }
-        Mod+Shift+2 { move-column-to-workspace focus=false "2"; }
-        Mod+Shift+3 { move-column-to-workspace focus=false "3"; }
-        Mod+Shift+4 { move-column-to-workspace focus=false "4"; }
+        Mod+Shift+1 { move-column-to-workspace focus=false 1; }
+        Mod+Shift+2 { move-column-to-workspace focus=false 2; }
+        Mod+Shift+3 { move-column-to-workspace focus=false 3; }
+        Mod+Shift+4 { move-column-to-workspace focus=false 4; }
         Mod+Shift+5 { move-column-to-workspace focus=false 5; }
         Mod+Shift+6 { move-column-to-workspace focus=false 6; }
         Mod+Shift+7 { move-column-to-workspace focus=false 7; }
@@ -168,9 +191,9 @@ in {
         Mod+Shift+9 { move-column-to-workspace focus=false 9; }
 
         Print { screenshot show-pointer=false; }
-        Ctrl+Print { screenshot-screen write-to-disk=false; }
-        Alt+Print { screenshot-window write-to-disk=false; }
-        Mod+Print { spawn-sh "gpu-screen-recorder -w portal -a default_input -o Videos/\"$(date +\"%Y-%m-%d_%H-%M-%S\")\".mp4"; }
+        Ctrl+Print { screenshot-screen; }
+        Alt+Print { screenshot-window; }
+        Mod+Print { spawn-sh "gpu-screen-recorder -a default_output -w portal -o Videos/\"$(date +\"%Y-%m-%d_%H-%M-%S\")\".mp4"; }
         Mod+Shift+Print { spawn-sh "pkill -SIGINT gpu-screen-reco"; }
 
         Mod+WheelScrollDown { focus-workspace-down; }

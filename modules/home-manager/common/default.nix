@@ -8,11 +8,12 @@
 
   home.packages = with pkgs; [
     jellyfin-desktop
-    bitwarden-desktop
+    thunderbird
     ncdu
     pavucontrol
     ripgrep
     fd
+    loupe
   ];
 
   home.sessionVariables = {

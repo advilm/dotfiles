@@ -1,6 +1,5 @@
 _: {
   imports = [
-    ./copilot.nix
     ./formatter.nix
     ./lsp.nix
     ./mini.nix

@@ -1,17 +1,30 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   xdg = {
     enable = true;
+
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gnome];
+      config.common.default = "gnome";
+    };
 
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = lib.mkDefault ["firefox.desktop"];
-        "x-scheme-handler/http" = ["firefox.desktop"];
-        "x-scheme-handler/https" = ["firefox.desktop"];
-        "text/html" = ["firefox.desktop"];
-        "text/plain" = ["nvim.desktop"];
-        "application/x-zerosize" = ["nvim.desktop"];
-        "image/png" = ["firefox.desktop"];
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "application/pdf" = lib.mkDefault "firefox.desktop";
+        "text/html" = "firefox.desktop";
+        "text/plain" = "nvim.desktop";
+        "application/x-zerosize" = "nvim.desktop";
+      };
+      associations.added = {
+        "application/pdf" = "firefox.desktop";
       };
     };
 
@@ -22,15 +35,5 @@
         default = ["Alacritty.desktop"];
       };
     };
-
-    # portal = {
-    #   enable = true;
-    #   xdgOpenUsePortal = true;
-    #   extraPortals = [
-    #     pkgs.xdg-desktop-portal-gtk
-    #   ];
-    #   config.common.default = ["gtk"];
-    #   config.hyprland.default = ["hyprland" "gtk"];
-    # };
   };
 }
