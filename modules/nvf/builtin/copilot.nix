@@ -1,6 +1,6 @@
 _: {
   vim.assistant.copilot = {
-    enable = true;
+    enable = false;
     setupOpts = {
       suggestion = {
         enabled = true;
