@@ -1,24 +1,22 @@
-{
-  inputs,
-  nixosModules,
-  ...
-}: {
-  imports = [
-    ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
+_: {
+  hardware.facter.reportPath = ./facter.json;
 
-    "${nixosModules}/common"
-    "${nixosModules}/desktops/niri"
-    "${nixosModules}/programs/docker"
-    "${nixosModules}/programs/nautilus"
-    "${nixosModules}/programs/nh"
-    "${nixosModules}/programs/obs-studio"
-    "${nixosModules}/programs/steam"
-    "${nixosModules}/programs/virt-manager"
-    "${nixosModules}/services/keyd"
-    "${nixosModules}/services/openssh"
-    "${nixosModules}/services/tlp"
-    "${nixosModules}/services/zerotier"
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/b9a37788-addf-4951-b198-8ceed661f8f2";
+    fsType = "btrfs";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/F8CC-AD8E";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
+  };
+
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/7bf6db1f-0128-4489-9b54-31d8101e7eee";}
   ];
 
   # boot.kernelParams = [

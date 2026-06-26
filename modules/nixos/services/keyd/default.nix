@@ -1,11 +1,16 @@
-{user, ...}: {
+{lib, user, moduleSettings, ...}: let
+  useDvorak = lib.attrByPath ["keyd" "useDvorak"] true moduleSettings;
+in {
   services.keyd = {
     enable = true;
     keyboards.default = {
       ids = ["*" "-8968:4e4f"];
       settings.main.capslock = "overload(meta, esc)";
-      settings.global.default_layout = "dvorak";
-      extraConfig = ''
+      settings.global.default_layout =
+        if useDvorak
+        then "dvorak"
+        else "us";
+      extraConfig = lib.optionalString useDvorak ''
         [dvorak:layout]
         ' = -
         , = w

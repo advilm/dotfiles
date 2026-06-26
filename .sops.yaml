@@ -1,0 +1,10 @@
+keys:
+  - &admin 0B9465CD27726070E64880F81DA7EEDE79385EB7
+  - &server age10axuuepugtg42fcx797vjctgysputf7et0xfnsl4pgmrctqs5szsqpp39u
+creation_rules:
+  - path_regex: machines/[^/]+/secrets\.yaml$
+    key_groups:
+    - pgp:
+      - *admin
+      age:
+      - *server

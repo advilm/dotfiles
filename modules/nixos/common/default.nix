@@ -7,8 +7,12 @@
   inputs,
   user,
   host,
+  moduleSettings,
   ...
-}: {
+}: let
+  wheelNeedsPassword = lib.attrByPath ["common" "sudo" "wheelNeedsPassword"] true moduleSettings;
+  useNetworkManager = lib.attrByPath ["common" "networking" "useNetworkManager"] true moduleSettings;
+in {
   nixpkgs.config.allowUnfree = true;
 
   hardware.enableRedistributableFirmware = true;
@@ -21,6 +25,7 @@
         "flakes"
       ];
       auto-optimise-store = true;
+      trusted-users = [user];
     };
     # use nixpkgs from flake for nix commands
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
@@ -46,65 +51,31 @@
 
   networking = {
     hostName = host;
-
+    nameservers = ["1.0.0.1"];
     networkmanager = {
-      enable = true;
+      enable = useNetworkManager;
       dns = "none";
       wifi.backend = "iwd";
       plugins = [pkgs.networkmanager-openvpn pkgs.networkmanager-openconnect];
     };
-
-    nameservers = ["1.0.0.1"];
   };
 
-  time.timeZone = "America/Los_Angeles";
+  hardware.facter.detected.dhcp.enable = false;
 
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = lib.mkDefault "us";
 
-  fonts.packages = with pkgs; [
-    ubuntu-classic
-    liberation_ttf
-    noto-fonts
-    noto-fonts-cjk-sans
-    mplus-outline-fonts.githubRelease
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.meslo-lg
-    twitter-color-emoji
-  ];
-
-  # for redshift
-  location.provider = "geoclue2";
-
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "audio"
-      "video"
-      "networkmanager"
-      "docker"
-      "i2c"
-    ];
     shell = pkgs.fish;
+    extraGroups = ["wheel" "networkmanager"];
   };
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment = {
-    systemPackages = with pkgs; [
-      ddcutil
-      git
-      vim
-      wget
-      seahorse
-      libsecret
-    ];
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      ADW_DISABLE_PORTAL = "1"; # TODO: Try disabling and see if it still works
-    };
-  };
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+    wget
+  ];
 
   documentation.man.generateCaches = false;
 
@@ -115,56 +86,7 @@
     enableFishIntegration = true;
   };
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    extraConfig.pipewire-pulse = {
-      "10-block-agc" = {
-        "pulse.rules" = [
-          {
-            # Block every client from touching source (mic) volume
-            matches = [
-              {"application.process.binary" = "electron";}
-            ];
-            actions = {
-              quirks = ["block-source-volume"];
-            };
-          }
-        ];
-      };
-    };
-    wireplumber.extraConfig = {
-      "50-hsp-autoswitch-disable" = {
-        "wireplumber.settings" = {
-          "bluetooth.autoswitch-to-headset-profile" = false;
-        };
-      };
-    };
-  };
-
-  # secrets manager
-  services.gnome.gnome-keyring.enable = true;
-
-  # skip typing username on login
-  # services.getty.loginOptions = "-p -- ${user}";
-  # services.getty.extraArgs = ["--skip-login"];
-
-  services.upower = {
-    enable = true;
-    # HybridSleep at 3% battery
-    percentageAction = 3;
-  };
-
-  hardware.bluetooth = {
-    enable = true;
-    settings.General = {
-      JustWorksRepairing = "always";
-      Experimental = true;
-    };
-  };
-
-  # for ddcutil to be able to control monitor brightness
-  hardware.i2c.enable = true;
+  security.sudo.wheelNeedsPassword = wheelNeedsPassword;
 
   # Most users should NEVER change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.

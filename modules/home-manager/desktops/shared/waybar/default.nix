@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  moduleSettings,
+  ...
+}: let
+  accentColor = lib.attrByPath ["theme" "accentColor"] "#82AAFF" moduleSettings;
+in {
   home.packages = with pkgs;
     [
       font-awesome
@@ -51,25 +58,25 @@
       #workspaces button:hover {
         color: inherit;
         background-color: #353a47;
-        box-shadow: inset 0 -2px #82AAFF;
+        box-shadow: inset 0 -2px ${accentColor};
       }
 
       #workspaces button.active {
         color: inherit;
         background-color: #353a47;
-        box-shadow: inset 0 -2px #82AAFF;
+        box-shadow: inset 0 -2px ${accentColor};
       }
 
       #taskbar button:hover {
         color: inherit;
         background-color: #353a47;
-        box-shadow: inset 0 -2px #82AAFF;
+        box-shadow: inset 0 -2px ${accentColor};
       }
 
       #taskbar button.active {
         color: inherit;
         background-color: #353a47;
-        box-shadow: inset 0 -2px #82AAFF;
+        box-shadow: inset 0 -2px ${accentColor};
       }
 
       button {
@@ -117,7 +124,7 @@
         };
         "network#down" = {
           interval = 3;
-          format = "<span color='#82AAFF'></span> {bandwidthDownBytes}";
+          format = "<span color='${accentColor}'></span> {bandwidthDownBytes}";
           format-disconnected = "";
           tooltip-format = "{ifname} via {gwaddr} 󰊗";
           tooltip-format-wifi = "{essid} ({signalStrength}%) ";
@@ -126,7 +133,7 @@
         };
         "network#up" = {
           interval = 3;
-          format = "<span color='#82AAFF'></span> {bandwidthUpBytes}";
+          format = "<span color='${accentColor}'></span> {bandwidthUpBytes}";
           format-disconnected = "";
           tooltip-format = "{ifname} via {gwaddr} 󰊗";
           tooltip-format-wifi = "{essid} ({signalStrength}%) ";
@@ -135,26 +142,26 @@
         };
         memory = {
           interval = 3;
-          format = "<span color='#82AAFF'></span> {}%";
+          format = "<span color='${accentColor}'></span> {}%";
         };
         cpu = {
           interval = 3;
-          format = "<span color='#82AAFF'></span> {usage}%";
+          format = "<span color='${accentColor}'></span> {usage}%";
         };
         "clock#date" = {
           interval = 1;
           timezones = ["America/Los_Angeles"];
-          format = "<span color='#82AAFF' rise='1pt'></span> {:%Y-%m-%d}";
+          format = "<span color='${accentColor}' rise='1pt'></span> {:%Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         "clock#time" = {
           interval = 1;
           timezones = ["America/Los_Angeles"];
-          format = "<span color='#82AAFF' rise='1pt'>󰥔</span> {:%H:%M}";
+          format = "<span color='${accentColor}' rise='1pt'>󰥔</span> {:%H:%M}";
           tooltip-format = "";
         };
         battery = {
-          format = "<span color='#82AAFF' size='small'>{icon}</span> {capacity}%";
+          format = "<span color='${accentColor}' size='small'>{icon}</span> {capacity}%";
           format-icons = ["" "" "" "" ""];
         };
       }

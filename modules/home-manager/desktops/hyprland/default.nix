@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  moduleSettings,
   ...
 }: {
   imports = [
@@ -31,7 +32,7 @@
         border_size = 2;
         gaps_in = 2;
         gaps_out = 4;
-        "col.active_border" = "rgb(82AAFF)";
+        "col.active_border" = "rgb(${lib.removePrefix "#" (lib.attrByPath ["theme" "accentColor"] "#82AAFF" moduleSettings)})";
         no_focus_fallback = true;
       };
       decoration = {

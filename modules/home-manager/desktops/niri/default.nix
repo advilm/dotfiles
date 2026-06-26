@@ -1,10 +1,12 @@
 {
   lib,
-  self,
   pkgs,
+  moduleSettings,
+  customPackages,
   ...
 }: let
   inherit (lib) getExe getExe' getLib;
+  accentColor = lib.attrByPath ["theme" "accentColor"] "#82AAFF" moduleSettings;
 
   alacritty = pkgs.writeShellScript "spawn-alacritty" ''
     if pgrep -x alacritty >/dev/null; then
@@ -14,7 +16,7 @@
     fi
   '';
 
-  notify-call = getExe self.packages.${pkgs.stdenv.hostPlatform.system}.notify-call;
+  notify-call = getExe customPackages.notify-call;
 
   changeBrightness = pkgs.writeShellScript "change-brightness" ''
     if [ "$1" = "up" ]; then
@@ -81,7 +83,7 @@ in {
         }
         border {
             width 1
-            active-color "#82AAFF"
+          active-color "${accentColor}"
         }
         focus-ring {
             off

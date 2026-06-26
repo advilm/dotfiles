@@ -7,20 +7,10 @@
   home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [
-    jellyfin-desktop
-    thunderbird
     ncdu
-    pavucontrol
     ripgrep
     fd
-    loupe
   ];
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    BROWSER = "firefox";
-    TERMINAL = "alacritty";
-  };
 
   programs.htop = {
     enable = true;
@@ -29,8 +19,6 @@
       show_cpu_temperature = 1;
     };
   };
-
-  programs.mangohud.enable = true;
 
   programs.fish = {
     enable = true;
