@@ -44,25 +44,23 @@ in {
 
     kernelParams = ["quiet" "loglevel=3" "systemd.show_status=auto" "rd.udev.log_level=3"];
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
     tmp.useTmpfs = true;
   };
 
   networking = {
     hostName = host;
-    nameservers = ["1.0.0.1"];
     networkmanager = {
       enable = useNetworkManager;
-      dns = "none";
       wifi.backend = "iwd";
-      plugins = [pkgs.networkmanager-openvpn pkgs.networkmanager-openconnect];
     };
   };
 
   hardware.facter.detected.dhcp.enable = false;
 
   i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "America/Los_Angeles";
   console.keyMap = lib.mkDefault "us";
 
   users.users.${user} = {

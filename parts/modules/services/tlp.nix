@@ -1,3 +1,3 @@
 _: {
-  flake.registry.tlp.nixos = _settings: import ../../../modules/nixos/services/tlp;
+  flake.registry.tlp.nixos = settings: import ../../../modules/nixos/services/tlp;
 }

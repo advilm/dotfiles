@@ -16,15 +16,11 @@ _: {
     html.enable = true;
     sql.enable = true;
     java.enable = true;
-    ts.enable = true;
+    typescript.enable = true;
     lua.enable = true;
     python.enable = true;
     typst.enable = true;
-    rust = {
-      enable = true;
-      crates.enable = true;
-    };
-    tailwind.enable = true;
+    rust.enable = true;
   };
 
   vim.autocomplete.blink-cmp = {

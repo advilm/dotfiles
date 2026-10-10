@@ -67,7 +67,6 @@
           mpv = {};
           overskride = {};
           signal = {};
-          spotify = {};
           discord = {};
           vscode = {};
           yazi = {};
@@ -121,7 +120,6 @@
           mpv = {};
           overskride = {};
           signal = {};
-          spotify = {};
           discord = {};
           vscode = {};
           yazi = {};
@@ -148,11 +146,19 @@
     server = {
       user = "advil";
       system = "x86_64-linux";
+      hardware = [
+        inputs.nixos-hardware.nixosModules.common-cpu-intel
+      ];
       profile = {
         enableHomeManager = true;
         modules = {
           common = {};
           openssh = {};
+          docker = {};
+          tlp = {
+            # governor_on_ac = "powersave";
+            # energy_performance_on_ac = "power";
+          };
           keyd = {
             useDvorak = true;
           };
